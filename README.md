@@ -6,4 +6,4 @@ This repository contains implementations of a number of different voting methods
 
 ## Contents of the repo
 
-* voting/profile_optimized.py:  The ProfileOpt class is the main data structure to store and reason about a profile.   A **profile** for a set of candidates $X$ and voters $V$ is a function $\mathbf{P}:V\rightarrow \mathcal{L}(X)$, where $\mathcal{L}(X)$ is the set of linear orders of $X$.  
+* voting/profile_optimized.py:  The ProfileOpt class is the main data structure to store and reason about a profile.   A **profile** for a set of candidates $$X$$ and voters $$V$$ is a function $$\mathbf{P}:V\rightarrow \mathcal{L}(X)$$, where $$\mathcal{L}(X)$$ is the set of linear orders of $$X$$.  
