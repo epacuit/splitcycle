@@ -30,6 +30,8 @@ The implementation of the profile operations is optimized using jit from [numba]
 
 * SplitCycleExamples.ipynb: A notebook with all the examples discussed in the paper [Split Cycle: A New Condorcet Consistent Voting Method Independent of Clones and Immune to Spoilers](). 
 
+* voting/voting_methods_split_cycle.py: Implementation of Split Cycle (called split_cycle); split_cycle_with_data (calculate Split Cycle winners with the cycle numbers for each pair of candidates and the split number for every simple cycle); faster implementations of Beat Path and Split Cycle (based on the Floyd-Warshal algorithm).   This code is also contained in the SplitCycleExamples.ipynb notebook (the code is in this file to make it easier to import into other notebooks). 
+
 * preflibtools/: These are the tools from [preflib.org](http://www.preflib.org/).   The code can be found here: [https://github.com/PrefLib/PrefLib-Tools](https://github.com/PrefLib/PrefLib-Tools).  This code is only needed if generating profiles (e.g., using the impartial culture or mallows model).  In particular, it is not needed to run the SplitCycleExamples.ipynb notebook.  
 
 * generate_profiles.py: Helper functions to interface between the ProfileOpt data structure and the outputs from the preflibtools generate profile functions.
