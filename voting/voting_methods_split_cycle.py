@@ -50,17 +50,17 @@ def find_condorcet_winner(G):
 flatten = lambda l: [item for sublist in l for item in sublist]
 
 
-# Splity Cycle implementation 
+# Splity Cycle  
 def split_cycle(prof):
     """Split Cycle"""
     
-    # create margin graph
+    # create the margin graph
     mg = generate_margin_graph(prof) 
 
-    # find cycle numbers for each candidate
-    cycle_number = {cs:0 for cs in combinations(prof.candidates,2)}
-    for cycle in nx.simple_cycles(mg): # for each cycle in mg
-        
+    # find the cycle numbers (Definition  3.12) for each candidate
+    cycle_number = {cs:0 for cs in permutations(prof.candidates,2)}
+    for cycle in nx.simple_cycles(mg): # for each cycle in the margin graph
+
         # get all the margins (i.e., the weights) of the edges in the cycle
         margins = list() 
         for idx,c1 in enumerate(cycle): 
@@ -68,37 +68,39 @@ def split_cycle(prof):
             c2 = cycle[next_idx]
             margins.append(mg[c1][c2]['weight'])
             
-        min_margin = min(margins) # the min is the minimal margin needed to break the cycle
-        
-        # check if should update the cycle number for each candidate
-        for cands in cycle_number.keys():
-            if cands[0] in cycle and cands[1] in cycle:
-                cycle_number[cands] = min_margin if min_margin > cycle_number[cands] else cycle_number[cands]
-    
-    # generate the beaten graph, where A beats B if margin(A,B) > cycle(A,B)
-    
-    cycle =  lambda c1,c2: cycle_number[[cs for cs in cycle_number.keys() if set(cs) == set([c1,c2])][0]]
-    G = nx.DiGraph()
-    G.add_nodes_from(prof.candidates)
-    G.add_edges_from([(c1,c2)  
-           for c1 in prof.candidates 
-           for c2 in prof.candidates if c1 != c2 if prof.margin(c1,c2)  > cycle(c1,c2)])
+        split_number = min(margins) # the split number of the cycle (Definition 3.2)
+        for c1,c2 in cycle_number.keys():
+            c1_index = cycle.index(c1) if c1 in cycle else -1
+            c2_index = cycle.index(c2) if c2 in cycle else -1
 
-    winners = unbeaten_candidates(G)
+            # only need to check cycles with an edge from c1 to c2
+            if (c1_index != -1 and c2_index != -1) and ((c2_index == c1_index + 1) or (c1_index == len(cycle)-1 and c2_index == 0)):
+                cycle_number[(c1,c2)] = split_number if split_number > cycle_number[(c1,c2)] else cycle_number[(c1,c2)]        
+
+    # construct the defeat relation, where a defeats b if margin(a,b) > cycle_number(a,b) (see Lemma 3.13)
+    defeat = nx.DiGraph()
+    defeat.add_nodes_from(prof.candidates)
+    defeat.add_edges_from([(c1,c2)  
+           for c1 in prof.candidates 
+           for c2 in prof.candidates if c1 != c2 if prof.margin(c1,c2) > cycle_number[(c1,c2)]])
+
+    # the winners are candidates not defeated by any other candidate
+    winners = unbeaten_candidates(defeat)
+    
     return sorted(list(set(winners)))
 
-# Return cycle numbers and split numbers
+# Return Split Cycle winners, split numbers, and defeat graph
 def split_cycle_with_data(prof):
-    """Split Cycle"""
+    """Split Cycle (with data)"""
     
-    # create margin graph
+    # create the margin graph
     mg = generate_margin_graph(prof) 
 
-    # find cycle numbers for each candidate
-    cycle_number = {cs:0 for cs in combinations(prof.candidates,2)}
-    split_number = dict()
-    for cycle in nx.simple_cycles(mg): # for each cycle in mg
-        
+    # find the cycle numbers (Definition  3.12) for each candidate
+    cycle_number = {cs:0 for cs in permutations(prof.candidates,2)}
+    split_numbers = dict()
+    for cycle in nx.simple_cycles(mg): # for each cycle in the margin graph
+
         # get all the margins (i.e., the weights) of the edges in the cycle
         margins = list() 
         for idx,c1 in enumerate(cycle): 
@@ -106,43 +108,48 @@ def split_cycle_with_data(prof):
             c2 = cycle[next_idx]
             margins.append(mg[c1][c2]['weight'])
             
-        min_margin = min(margins) # the min is the minimal margin needed to break the cycle
+        split_number = min(margins) # the split number of the cycle (Definition 3.2)
         
-        split_number.update({tuple(cycle): min_margin})
-        # check if should update the cycle number for each candidate
-        for cands in cycle_number.keys():
-            if cands[0] in cycle and cands[1] in cycle:
-                cycle_number[cands] = min_margin if min_margin > cycle_number[cands] else cycle_number[cands]
-    
-    # generate the beaten graph, where A beats B if margin(A,B) > cycle(A,B)
-    
-    cycle =  lambda c1,c2: cycle_number[[cs for cs in cycle_number.keys() if set(cs) == set([c1,c2])][0]]
-    G = nx.DiGraph()
-    G.add_nodes_from(prof.candidates)
-    G.add_edges_from([(c1,c2)  
-           for c1 in prof.candidates 
-           for c2 in prof.candidates if c1 != c2 if prof.margin(c1,c2)  > cycle(c1,c2)])
+        split_numbers.update({tuple(cycle): split_number}) # record split numbers
+        for c1,c2 in cycle_number.keys():
+            c1_index = cycle.index(c1) if c1 in cycle else -1
+            c2_index = cycle.index(c2) if c2 in cycle else -1
 
-    winners = unbeaten_candidates(G)
-    return sorted(list(set(winners))), cycle_number, split_number
+            # only need to check cycles with an edge from c1 to c2
+            if (c1_index != -1 and c2_index != -1) and ((c2_index == c1_index + 1) or (c1_index == len(cycle)-1 and c2_index == 0)):
+                cycle_number[(c1,c2)] = split_number if split_number > cycle_number[(c1,c2)] else cycle_number[(c1,c2)]        
+
+    # construct the defeat relation, where a defeats b if margin(a,b) > cycle_number(a,b) (see Lemma 3.13)
+    defeat = nx.DiGraph()
+    defeat.add_nodes_from(prof.candidates)
+    defeat.add_edges_from([(c1,c2)  
+           for c1 in prof.candidates 
+           for c2 in prof.candidates if c1 != c2 if prof.margin(c1,c2) > cycle_number[(c1,c2)]])
+
+    # the winners are candidates not defeated by any other candidate
+    winners = unbeaten_candidates(defeat)
+    
+    return sorted(list(set(winners))), split_numbers, defeat
 
 # Display all the Split Cycle data
-def display_split_cycle_data(prof, cmap):
+def display_split_cycle_data(prof):
     
-    sc_winners, cycle_number, split_number = split_cycle_with_data(prof)
+    sc_winners, split_numbers, defeat = split_cycle_with_data(prof)
 
+    print ""
     display_winners(split_cycle, prof)
     print "\n---\n"
-
-    for cands in cycle_number.keys():
-        print "CycleNum({}, {}) = {}".format(cmap[cands[0]],cmap[cands[1]], cycle_number[cands])
-
+    print "Split numbers\n"
+    for cycle in split_numbers.keys():
+        print "Split#({}) = {}".format(",".join([prof.cname(_) for _ in cycle]), split_numbers[cycle])
+    
     print "\n---\n"
-    for cycle in split_number.keys():
-        print "SplitNum({}) = {}".format(",".join([cmap[_] for _ in cycle]), split_number[cycle])
+    print "Defeat relation"
+    defeat = nx.relabel_nodes(defeat, {c:prof.cname(c) for c in defeat.nodes})
+    pos = nx.circular_layout(defeat)
+    nx.draw(defeat, pos, font_size=20, node_color='blue', font_color='white',node_size=700, width=1, lw=1.75, with_labels=True)
     
     print "\n"
-
 
 
 def schulze_beatpath(prof): 
