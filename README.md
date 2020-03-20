@@ -28,11 +28,15 @@ The implementation of the profile operations is optimized using jit from [numba]
 
 * voting/voting_methods_for_optimized.py: Implementation of a number of different voting methods.  Each voting method takes a ProfileOpt as a parameter and returns a sorted list of candidates (a sorted list of cand_names).  The voting methods that are implemented include: plurality, majority, borda, plurality_with_runoff, hare (also known as "Ranked Choice"), coombs, strict_nanson (and weak_nanson), baldwin, condorcet, schulze_beatpath, and ranked_pairs.   (See the paper and the [Voting Methods](https://plato.stanford.edu/entries/voting-methods/) entry for definitions of these voting methods).  The implemenation  of Split Cycle (split_cycle) is found in SplitCycleExamples.ipynb.  Faster versions of Split Cycle and Beat Path (called splitcycle_faster and beatpath_faster) is found in SplitCycleExamples.ipynb.  
 
-* [SplitCycleExamples.ipynb](https://nbviewer.jupyter.org/github/epacuit/splitcycle/blob/master/SplitCycleExamples.ipynb): A notebook with all the examples discussed in the paper [Split Cycle: A New Condorcet Consistent Voting Method Independent of Clones and Immune to Spoilers](). 
+* [SplitCycleExamples.ipynb](https://nbviewer.jupyter.org/github/epacuit/splitcycle/blob/master/SplitCycleExamples.ipynb): A  Jupyter notebook with all the examples discussed in the paper [Split Cycle: A New Condorcet Consistent Voting Method Independent of Clones and Immune to Spoilers](). 
+
+* IrresolutenessPreflibData.ipynb: A Jupyter notebook to generate the graph in Figure 7 showing the percent of profiles with multiple winners on 315 different real elections.  The notebook also shows the winning sets for Split Cycle, Beat Path, Copeland and GETCHA on each election.  Running the notebook creates the file mult_winners_real_elections.png containing the bar graph. s
 
 * voting/voting_methods_split_cycle.py: Implementation of Split Cycle (called split_cycle); split_cycle_with_data (calculate Split Cycle winners with the cycle numbers for each pair of candidates and the split number for every simple cycle); faster implementations of Beat Path and Split Cycle (based on the Floyd-Warshal algorithm).   This code is also contained in the SplitCycleExamples.ipynb notebook (the code is in this file to make it easier to import into other notebooks). 
 
 * preflibtools/: These are the tools from [preflib.org](http://www.preflib.org/).   The code can be found here: [https://github.com/PrefLib/PrefLib-Tools](https://github.com/PrefLib/PrefLib-Tools).  This code is only needed if generating profiles (e.g., using the impartial culture or mallows model).  In particular, it is not needed to run the SplitCycleExamples.ipynb notebook.  
+
+* election-data/: Election results for 315 elections from  [preflib.org](http://www.preflib.org/) where voters supplies linear orderings.   
 
 * generate_profiles.py: Helper functions to interface between the ProfileOpt data structure and the outputs from the preflibtools generate profile functions.
 
