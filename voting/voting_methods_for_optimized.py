@@ -338,6 +338,35 @@ def ranked_pairs(prof):
             winning_set.append(unbeaten_candidates(new_ranking)[0])
     return sorted(list(set(winning_set)))
 
+
+## GETCHA and GOCHA
+def generate_weak_margin_graph(prof, min_margin = 0):
+    '''generate the weak weighted margin graph'''
+    mg = nx.DiGraph()
+    mg.add_nodes_from(prof.candidates)
+    mg.add_weighted_edges_from([(c1,c2,prof.support(c1,c2) - prof.support(c2,c1))  
+           for c1 in prof.candidates 
+           for c2 in prof.candidates if c1 != c2 if prof.support(c1,c2) - prof.support(c2,c1) >= min_margin])
+    return mg
+
+def getcha(prof):
+    '''GETCHA''' 
+    mg = generate_weak_margin_graph(prof)
+    min_indegree = min([max([mg.in_degree(n) for n in comp]) for comp in nx.strongly_connected_components(mg)])
+    smith = [comp for comp in nx.strongly_connected_components(mg) if max([mg.in_degree(n) for n in comp]) == min_indegree][0]
+    return sorted(list(smith))
+
+def gocha(prof):
+    '''GOCHA''' 
+    mg = generate_margin_graph(prof)
+    transitive_closure =  nx.algorithms.dag.transitive_closure(mg)
+    schwartz = set()
+    for ssc in nx.strongly_connected_components(transitive_closure):
+        if not any([transitive_closure.has_edge(c2,c1) 
+                    for c1 in ssc for c2 in transitive_closure.nodes if c2 not in ssc]):
+            schwartz =  schwartz.union(ssc)
+    return sorted(list(schwartz))
+
 ###
 #Helper functions
 ###
