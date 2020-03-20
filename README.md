@@ -30,7 +30,7 @@ The implementation of the profile operations is optimized using jit from [numba]
 
 * [SplitCycleExamples.ipynb](https://nbviewer.jupyter.org/github/epacuit/splitcycle/blob/master/SplitCycleExamples.ipynb): A  Jupyter notebook with all the examples discussed in the paper [Split Cycle: A New Condorcet Consistent Voting Method Independent of Clones and Immune to Spoilers](). 
 
-* IrresolutenessPreflibData.ipynb: A Jupyter notebook to generate the graph in Figure 7 showing the percent of profiles with multiple winners on 315 different real elections.  The notebook also shows the winning sets for Split Cycle, Beat Path, Copeland and GETCHA on each election.  Running the notebook creates the file mult_winners_real_elections.png containing the bar graph. s
+* IrresolutenessPreflibData.ipynb: A Jupyter notebook to generate the graph in Figure 7 showing the percent of profiles with multiple winners on 315 different real elections.  The notebook also shows the winning sets for Split Cycle, Beat Path, Copeland and GETCHA on each election.  Running the notebook creates the file mult_winners_real_elections.png containing the bar graph. 
 
 * voting/voting_methods_split_cycle.py: Implementation of Split Cycle (called split_cycle); split_cycle_with_data (calculate Split Cycle winners with the cycle numbers for each pair of candidates and the split number for every simple cycle); faster implementations of Beat Path and Split Cycle (based on the Floyd-Warshal algorithm).   This code is also contained in the SplitCycleExamples.ipynb notebook (the code is in this file to make it easier to import into other notebooks). 
 
