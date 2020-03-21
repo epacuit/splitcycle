@@ -32,6 +32,8 @@ The implementation of the profile operations is optimized using jit from [numba]
 
 * IrresolutenessPreflibData.ipynb: A Jupyter notebook to generate the graph in Figure 7 showing the percent of profiles with multiple winners on 315 different real elections.  The notebook also shows the winning sets for Split Cycle, Beat Path, Copeland and GETCHA on each election.  Running the notebook creates the file mult_winners_real_elections.png containing the bar graph. 
 
+* ComparingSplitCycleToBeatPath.ipynb: A Jupyter notebook to generate the graph in Figure 9 displaying the percent of profiles in which Split Cycle and Beat Path have different winning sets.  Running the notebook creates the file percent_diff_bp_sc_winners.png containing the graph and mult_winners.pkl containing the data. 
+
 * voting/voting_methods_split_cycle.py: Implementation of Split Cycle (called split_cycle); split_cycle_with_data (calculate Split Cycle winners with the cycle numbers for each pair of candidates and the split number for every simple cycle); faster implementations of Beat Path and Split Cycle (based on the Floyd-Warshal algorithm).   This code is also contained in the SplitCycleExamples.ipynb notebook (the code is in this file to make it easier to import into other notebooks). 
 
 * preflibtools/: These are the tools from [preflib.org](http://www.preflib.org/).   The code can be found here: [https://github.com/PrefLib/PrefLib-Tools](https://github.com/PrefLib/PrefLib-Tools).  This code is only needed if generating profiles (e.g., using the impartial culture or mallows model).  In particular, it is not needed to run the SplitCycleExamples.ipynb notebook.  
@@ -46,7 +48,11 @@ The implementation of the profile operations is optimized using jit from [numba]
 * [networkx](https://networkx.github.io/) (to store and reason about margin graphs)
 * [numba.jit](https://numba.pydata.org/) (to speed up some calculations involving profiles)
 * [numpy](https://numpy.org/) (for average and to opitmize storing profiles)
+* [PrettyTable](https://pypi.org/project/PrettyTable/) (to display profiles)
 * itertools (combinations, product and permutations)
 * math.ceil (for some calculations)
 * random (to implement a random tiebreaking rule)
 * string (to generate voter/candidate names)
+* [seaborn](https://seaborn.pydata.org/) (only needed for displaying graphs)
+* [multiprocessing](https://docs.python.org/2/library/multiprocessing.html) (parallel processing to speed up the calculations in ComparingSplitCycleToBeatPath.ipynb)
+* [cPickle](https://docs.python.org/2/library/pickle.html) (to store output when running ComparingSplitCycleToBeatPath.ipynb) 
