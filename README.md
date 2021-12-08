@@ -1,58 +1,91 @@
-# Split Cycle
 
-Split Cycle is a new Condorcet consistent voting method that is independent of clones and immune to spoilers.  Details about this  voting method, including the properties that it satisfies, can be found in the paper [Split Cycle: A New Condorcet Consistent Voting Method Independent of Clones and Immune to Spoilers]() by Wesley H. Holliday  and Eric Pacuit.
+# Stable Voting
 
-This repository contains implementations of a number of different voting methods, including Split Cycle and other Condorcet consistent methods, such as Beat Path, Ranked Pairs, Copeland, Minimax (also known as the Simpson-Kramer rule).  
+README.md for the code used in the paper [Split Cycle: A New Condorcet Consistent Voting Method Independent of Clones and Immune to Spoilers](https://arxiv.org/abs/2004.02350) by Wes Holliday and Eric Pacuit.  
 
-## Contents of the Repo
+## Where to start
 
-* voting/profile_optimized.py:  The ProfileOpt class is the main data structure to store and reason about a profile.   A **profile** for a set of candidates  and voters is a function that assigns to each voter a linear order on the set of candidates.  The easiest way to create a profile:
+tl;dr: An overview of profiles (with ties) and voting methods is found in 01-Profiles.ipynb,  02-VotingMethods.ipynb, and 03-ProfileWithTies.ipynb.   See 04-SplitCycleExamples.ipynb for the implementation of Split Cycle and some examples from the paper. See 04-AnalyzingElectionData.ipynb for the code to anaylize actual elections from [preflib.org](https://preflib.org). 
+
+
+1. 01-Profiles.ipynb Contains an overview of how to create profiles (implemented in voting/profiles.py) and generate profiles with different numbers of candidates/voters (implemented in voting/generate_profiles.py).   
+
+A profile is created by initializing a Profile class object.  This needs a list of rankings (each ranking is a tuple of numbers), the number of candidates and a list giving the number of each ranking in the profile:
 
 ```python
-# use integers for the candidate names
-cand_names = [0, 1, 2]
+from voting.profiles import Profile
 
-# dictionary mapping candidate names to strings (to make profiles easier to read)
-cmap = {0:"a", 1:"b", 2:"c"}
+rankings = [(0, 1, 2, 3), (2, 3, 1, 0), (3, 1, 2, 0), (1, 2, 0, 3), (1, 3, 2, 0)]
+num_cands = 4
+rcounts = [5, 3, 2, 4, 3]
 
-# an anonymous profile is a dictionary with linear orders over cand_names as keys each associated 
-# with the number of voters having that ranking.
-anon_prof = {(1, 0, 2): 2,
-             (0, 2, 1): 3,
-             (2, 1, 0): 4} 
-
-# create a profile given the anonymous profile,  the candidate names and candidate map
-prof = create_profile_opt_from_anon_profile(anon_prof, candidate_names = cand_names, cmap = cmap) 
+prof = Profile(rankings, num_cands, rcounts=rcounts)
 ```
-The implementation of the profile operations is optimized using jit from [numba](https://numba.pydata.org/)
 
-* voting/voting_methods_for_optimized.py: Implementation of a number of different voting methods.  Each voting method takes a ProfileOpt as a parameter and returns a sorted list of candidates (a sorted list of cand_names).  The voting methods that are implemented include: plurality, majority, borda, plurality_with_runoff, hare (also known as "Ranked Choice"), coombs, strict_nanson (and weak_nanson), baldwin, condorcet, schulze_beatpath, and ranked_pairs.   (See the paper and the [Voting Methods](https://plato.stanford.edu/entries/voting-methods/) entry for definitions of these voting methods).  The implemenation  of Split Cycle (split_cycle) is found in SplitCycleExamples.ipynb.  Faster versions of Split Cycle and Beat Path (called splitcycle_faster and beatpath_faster) is found in SplitCycleExamples.ipynb.  
+The function generate_profile is used to generate a profile for a given number of candidates and voters:  
+```python
+from voting.generate_profiles import generate_profile
 
-* [SplitCycleExamples.ipynb](https://nbviewer.jupyter.org/github/epacuit/splitcycle/blob/master/SplitCycleExamples.ipynb): A  Jupyter notebook with all the examples discussed in the paper [Split Cycle: A New Condorcet Consistent Voting Method Independent of Clones and Immune to Spoilers](). 
+# generate a profile using the Impartial Culture probability model
+prof = generate_profile(3, 4) # prof is a Profile object with 3 candidate and 4 voters
 
-* IrresolutenessPreflibData.ipynb: A Jupyter notebook to generate the graph in Figure 7 showing the percent of profiles with multiple winners on 315 different real elections.  The notebook also shows the winning sets for Split Cycle, Beat Path, Copeland and GETCHA on each election.  Running the notebook creates the file mult_winners_real_elections.png containing the bar graph. 
+# generate a profile using the Impartial Anonymous Culture probability model
+prof = generate_profile(3, 4, probmod = "IAC") # prof is a Profile object with 3 candidate and 4 voters
+```
 
-* ComparingSplitCycleToBeatPath.ipynb: A Jupyter notebook to generate the graph in Figure 9 displaying the percent of profiles in which Split Cycle and Beat Path have different winning sets.  Running the notebook creates the file percent_diff_bp_sc_winners.png containing the graph and mult_winners.pkl containing the data. 
+2. Import and use voting methods (see voting/voting_methods.py for implementations and 02-VotingMethods.ipynb for an overview): 
 
-* voting/voting_methods_split_cycle.py: Implementation of Split Cycle (called split_cycle); split_cycle_with_data (calculate Split Cycle winners with the cycle numbers for each pair of candidates and the split number for every simple cycle); faster implementations of Beat Path and Split Cycle (based on the Floyd-Warshal algorithm).   This code is also contained in the SplitCycleExamples.ipynb notebook (the code is in this file to make it easier to import into other notebooks). 
+```python
+from voting.profiles import Profile
+from voting.voting_methods import *
 
-* preflibtools/: These are the tools from [preflib.org](http://www.preflib.org/).   The code can be found here: [https://github.com/PrefLib/PrefLib-Tools](https://github.com/PrefLib/PrefLib-Tools).  This code is only needed if generating profiles (e.g., using the impartial culture or mallows model).  In particular, it is not needed to run the SplitCycleExamples.ipynb notebook.  
+prof = Profile(rankings, num_cands, rcounts=rcounts)
+print(f"The {borda.name} winners are {borda(prof)}")
+```
 
-* election-data/: Election results for 315 elections from  [preflib.org](http://www.preflib.org/) where voters supplies linear orderings.   
+3. For profiles in which voters submit strict weak orders (i.e., voters submit rankings with ties), see the class ProfileWithTies implemented in voting/profiles_with_ties.py
 
-* generate_profiles.py: Helper functions to interface between the ProfileOpt data structure and the outputs from the preflibtools generate profile functions.
+## Dev Notes
+
+* Many of the voting methods assume  that voters submit linear orders over the set of candidates (as implemented in the Profile class). 
+* In order to optimize some of the code for reasoning about profiles, it is assumed that in any profile the candidates are named by the initial segment of the non-negative integers.  So, in a profile with 5 candidates, the candidate names are "0, 1, 2, 3, and 4".   Use the `cmap` variable for different candidate names: `cmap` is a dictionary with keys 0, 1, ..., num_cands - 1 and values the "real" names of the candidates.  
+* Not all voting methods work on ProfileWithTies.  In particular, borda and hare (ranked-choice) generates an error when given a ProfileWithTies
+
+## Notebooks
+
+1. 01-Profile.ipynb: This notebook is an overview of how to create profiles, remove candidates from a profile and generate profiles according to various probability models.    
+
+2. 02-VotingMethods.ipynb: This notebook is an overview of the voting methods that are available. 
+
+3. 03-ProfilesWithTies.ipynb: Profiles with voters that submit strict weak orders over the candidates. 
+
+3. 04-SplitCycleExamples.ipynb: This notebook discusses the implementation of Split Cycle and a number of examples from the paper. 
+
+4. 05-AnalyzingElectionData.ipynb: Analyzing actual elections from [preflib.org](https://preflib.org). 
+
+## Other Files/Directories
+
+1. voting/profiles.py: Implementation of the Profile class used to create and reason about profile (see 01-Profile.ipynb for an overview).
+
+2. voting/profiles_with_ties.py: Implementation of the ProfileWithTies class used from elections in which voters submit strict weak orders (see 03-ProfilesWithTies.ipynb for an overview). 
+
+3. voting/voting_methods.py: Implementations of the voting methods (see 02-VotingMethods.ipynb for an overview).
+
+4. voting/generate_profiles.py: Implementation of  the function `generate_profile` to interface with the Preflib tools to generate profiles according to different probability models. 
+
+5. preflib-data/: Data from [preflib.org](https://preflib.org) of actual elections discussed in the paper. 
+
 
 ## Requirements
 
-* [matplotlib.pyplot](https://matplotlib.org/) (to display margin graphs)
-* [networkx](https://networkx.github.io/) (to store and reason about margin graphs)
-* [numba.jit](https://numba.pydata.org/) (to speed up some calculations involving profiles)
-* [numpy](https://numpy.org/) (for average and to opitmize storing profiles)
-* [PrettyTable](https://pypi.org/project/PrettyTable/) (to display profiles)
-* itertools (combinations, product and permutations)
-* math.ceil (for some calculations)
-* random (to implement a random tiebreaking rule)
-* string (to generate voter/candidate names)
-* [seaborn](https://seaborn.pydata.org/) (only needed for displaying graphs)
-* [multiprocessing](https://docs.python.org/2/library/multiprocessing.html) (parallel processing to speed up the calculations in ComparingSplitCycleToBeatPath.ipynb)
-* [cPickle](https://docs.python.org/2/library/pickle.html) (to store output when running ComparingSplitCycleToBeatPath.ipynb) 
+All the code is written in Python 3. 
+
+- [Preflib tools](https://github.com/PrefLib/PrefLib-Tools) (available in the voting/preflibtools directory)
+- The notebooks and most of the library is built around a full SciPy stack: [MatPlotLib](https://matplotlib.org/), [Numpy](https://numpy.org/), [Pandas](https://pandas.pydata.org/)
+- [numba](http://numba.pydata.org/) 
+- [networkx](https://networkx.org/)
+- [tabulate](https://github.com/astanin/python-tabulate)
+- [seaborn](https://seaborn.pydata.org/)  
+- [multiprocess](https://pypi.org/project/multiprocess/) (only needed if running the simulations in  05-ProbabilisticStabilityWinners.ipynb) 
+- [tqdm.notebook](https://github.com/tqdm/tqdm)
+ 
