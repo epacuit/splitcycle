@@ -9,11 +9,12 @@ The notebooks use the Python package ``pref_voting``.   Consult [https://pref-vo
 
 ## Notebooks
 
-* 01-SplitCycleExamples.ipynb: All the examples from the paper. 
-* 02-AppendixCExamples.ipynb: All the examples from Appendix C. 
-* 03-AppendixDIrresolutenessData.ipynb: The code to produce the graphs in Appendix D. 
-* 04-Tables.ipynb: The code to generate the three tables in the paper. 
-* 05-AnalyzingElectionData.ipynb: Applying Split Cycle to the election data from [preflib.org](https://preflib.org) 
+* 01-SplitCycle.ipynb: An efficient algorithm for computing Split Cycle.
+* 02-SplitCycleExamples.ipynb: All the examples from the paper. 
+* 03-AppendixCExamples.ipynb: All the examples from Appendix C. 
+* 04-AppendixDIrresolutenessData.ipynb: The code to produce the graphs in Appendix D. 
+* 05-Tables.ipynb: The code to generate the three tables in the paper. 
+* 06-AnalyzingElectionData.ipynb: Applying Split Cycle to the election data from [preflib.org](https://preflib.org) 
 
 
 ## Requirements
