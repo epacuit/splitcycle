@@ -1,0 +1,1001 @@
+num_cands,num_voters,pm,vm,num_profiles,perc_mult_winners
+5,"(4, 5)",IC,Split Cycle,50,0.36
+5,"(4, 5)",IC,Beat Path,50,0.36
+5,"(4, 5)",IC,Copeland,50,0.16
+5,"(4, 5)",IC,GETCHA,50,0.4
+5,"(4, 5)",IC,Uncovered Set,50,0.4
+5,"(10, 11)",IC,Split Cycle,50,0.26
+5,"(10, 11)",IC,Beat Path,50,0.26
+5,"(10, 11)",IC,Copeland,50,0.04
+5,"(10, 11)",IC,GETCHA,50,0.26
+5,"(10, 11)",IC,Uncovered Set,50,0.26
+5,"(20, 21)",IC,Split Cycle,50,0.3
+5,"(20, 21)",IC,Beat Path,50,0.3
+5,"(20, 21)",IC,Copeland,50,0.16
+5,"(20, 21)",IC,GETCHA,50,0.38
+5,"(20, 21)",IC,Uncovered Set,50,0.38
+5,"(50, 51)",IC,Split Cycle,50,0.0
+5,"(50, 51)",IC,Beat Path,50,0.0
+5,"(50, 51)",IC,Copeland,50,0.0
+5,"(50, 51)",IC,GETCHA,50,0.0
+5,"(50, 51)",IC,Uncovered Set,50,0.0
+5,"(100, 101)",IC,Split Cycle,50,0.1
+5,"(100, 101)",IC,Beat Path,50,0.1
+5,"(100, 101)",IC,Copeland,50,0.14
+5,"(100, 101)",IC,GETCHA,50,0.2
+5,"(100, 101)",IC,Uncovered Set,50,0.2
+5,"(500, 501)",IC,Split Cycle,50,0.0
+5,"(500, 501)",IC,Beat Path,50,0.0
+5,"(500, 501)",IC,Copeland,50,0.2
+5,"(500, 501)",IC,GETCHA,50,0.2
+5,"(500, 501)",IC,Uncovered Set,50,0.2
+5,"(1000, 1001)",IC,Split Cycle,50,0.0
+5,"(1000, 1001)",IC,Beat Path,50,0.0
+5,"(1000, 1001)",IC,Copeland,50,0.16
+5,"(1000, 1001)",IC,GETCHA,50,0.34
+5,"(1000, 1001)",IC,Uncovered Set,50,0.34
+5,"(5000, 5001)",IC,Split Cycle,50,0.1
+5,"(5000, 5001)",IC,Beat Path,50,0.0
+5,"(5000, 5001)",IC,Copeland,50,0.2
+5,"(5000, 5001)",IC,GETCHA,50,0.5
+5,"(5000, 5001)",IC,Uncovered Set,50,0.5
+7,"(4, 5)",IC,Split Cycle,50,0.32
+7,"(4, 5)",IC,Beat Path,50,0.32
+7,"(4, 5)",IC,Copeland,50,0.08
+7,"(4, 5)",IC,GETCHA,50,0.48
+7,"(4, 5)",IC,Uncovered Set,50,0.48
+7,"(10, 11)",IC,Split Cycle,50,0.58
+7,"(10, 11)",IC,Beat Path,50,0.52
+7,"(10, 11)",IC,Copeland,50,0.24
+7,"(10, 11)",IC,GETCHA,50,0.68
+7,"(10, 11)",IC,Uncovered Set,50,0.68
+7,"(20, 21)",IC,Split Cycle,50,0.42
+7,"(20, 21)",IC,Beat Path,50,0.34
+7,"(20, 21)",IC,Copeland,50,0.34
+7,"(20, 21)",IC,GETCHA,50,0.72
+7,"(20, 21)",IC,Uncovered Set,50,0.72
+7,"(50, 51)",IC,Split Cycle,50,0.3
+7,"(50, 51)",IC,Beat Path,50,0.22
+7,"(50, 51)",IC,Copeland,50,0.14
+7,"(50, 51)",IC,GETCHA,50,0.56
+7,"(50, 51)",IC,Uncovered Set,50,0.56
+7,"(100, 101)",IC,Split Cycle,50,0.36
+7,"(100, 101)",IC,Beat Path,50,0.3
+7,"(100, 101)",IC,Copeland,50,0.1
+7,"(100, 101)",IC,GETCHA,50,0.52
+7,"(100, 101)",IC,Uncovered Set,50,0.52
+7,"(500, 501)",IC,Split Cycle,50,0.04
+7,"(500, 501)",IC,Beat Path,50,0.04
+7,"(500, 501)",IC,Copeland,50,0.1
+7,"(500, 501)",IC,GETCHA,50,0.3
+7,"(500, 501)",IC,Uncovered Set,50,0.3
+7,"(1000, 1001)",IC,Split Cycle,50,0.06
+7,"(1000, 1001)",IC,Beat Path,50,0.06
+7,"(1000, 1001)",IC,Copeland,50,0.2
+7,"(1000, 1001)",IC,GETCHA,50,0.4
+7,"(1000, 1001)",IC,Uncovered Set,50,0.4
+7,"(5000, 5001)",IC,Split Cycle,50,0.36
+7,"(5000, 5001)",IC,Beat Path,50,0.04
+7,"(5000, 5001)",IC,Copeland,50,0.3
+7,"(5000, 5001)",IC,GETCHA,50,0.7
+7,"(5000, 5001)",IC,Uncovered Set,50,0.7
+10,"(4, 5)",IC,Split Cycle,50,0.48
+10,"(4, 5)",IC,Beat Path,50,0.42
+10,"(4, 5)",IC,Copeland,50,0.28
+10,"(4, 5)",IC,GETCHA,50,0.52
+10,"(4, 5)",IC,Uncovered Set,50,0.52
+10,"(10, 11)",IC,Split Cycle,50,0.54
+10,"(10, 11)",IC,Beat Path,50,0.54
+10,"(10, 11)",IC,Copeland,50,0.18
+10,"(10, 11)",IC,GETCHA,50,0.64
+10,"(10, 11)",IC,Uncovered Set,50,0.64
+10,"(20, 21)",IC,Split Cycle,50,0.38
+10,"(20, 21)",IC,Beat Path,50,0.26
+10,"(20, 21)",IC,Copeland,50,0.18
+10,"(20, 21)",IC,GETCHA,50,0.64
+10,"(20, 21)",IC,Uncovered Set,50,0.64
+10,"(50, 51)",IC,Split Cycle,50,0.28
+10,"(50, 51)",IC,Beat Path,50,0.18
+10,"(50, 51)",IC,Copeland,50,0.24
+10,"(50, 51)",IC,GETCHA,50,0.64
+10,"(50, 51)",IC,Uncovered Set,50,0.64
+10,"(100, 101)",IC,Split Cycle,50,0.5
+10,"(100, 101)",IC,Beat Path,50,0.34
+10,"(100, 101)",IC,Copeland,50,0.42
+10,"(100, 101)",IC,GETCHA,50,0.76
+10,"(100, 101)",IC,Uncovered Set,50,0.76
+10,"(500, 501)",IC,Split Cycle,50,0.44
+10,"(500, 501)",IC,Beat Path,50,0.08
+10,"(500, 501)",IC,Copeland,50,0.46
+10,"(500, 501)",IC,GETCHA,50,0.7
+10,"(500, 501)",IC,Uncovered Set,50,0.7
+10,"(1000, 1001)",IC,Split Cycle,50,0.1
+10,"(1000, 1001)",IC,Beat Path,50,0.0
+10,"(1000, 1001)",IC,Copeland,50,0.2
+10,"(1000, 1001)",IC,GETCHA,50,0.5
+10,"(1000, 1001)",IC,Uncovered Set,50,0.5
+10,"(5000, 5001)",IC,Split Cycle,50,0.22
+10,"(5000, 5001)",IC,Beat Path,50,0.04
+10,"(5000, 5001)",IC,Copeland,50,0.28
+10,"(5000, 5001)",IC,GETCHA,50,0.6
+10,"(5000, 5001)",IC,Uncovered Set,50,0.6
+20,"(4, 5)",IC,Split Cycle,50,0.86
+20,"(4, 5)",IC,Beat Path,50,0.82
+20,"(4, 5)",IC,Copeland,50,0.22
+20,"(4, 5)",IC,GETCHA,50,0.9
+20,"(4, 5)",IC,Uncovered Set,50,0.9
+20,"(10, 11)",IC,Split Cycle,50,0.78
+20,"(10, 11)",IC,Beat Path,50,0.66
+20,"(10, 11)",IC,Copeland,50,0.36
+20,"(10, 11)",IC,GETCHA,50,0.96
+20,"(10, 11)",IC,Uncovered Set,50,0.96
+20,"(20, 21)",IC,Split Cycle,50,0.54
+20,"(20, 21)",IC,Beat Path,50,0.32
+20,"(20, 21)",IC,Copeland,50,0.18
+20,"(20, 21)",IC,GETCHA,50,0.8
+20,"(20, 21)",IC,Uncovered Set,50,0.8
+20,"(50, 51)",IC,Split Cycle,50,0.34
+20,"(50, 51)",IC,Beat Path,50,0.2
+20,"(50, 51)",IC,Copeland,50,0.06
+20,"(50, 51)",IC,GETCHA,50,0.56
+20,"(50, 51)",IC,Uncovered Set,50,0.56
+20,"(100, 101)",IC,Split Cycle,50,0.46
+20,"(100, 101)",IC,Beat Path,50,0.24
+20,"(100, 101)",IC,Copeland,50,0.32
+20,"(100, 101)",IC,GETCHA,50,0.86
+20,"(100, 101)",IC,Uncovered Set,50,0.86
+20,"(500, 501)",IC,Split Cycle,50,0.42
+20,"(500, 501)",IC,Beat Path,50,0.06
+20,"(500, 501)",IC,Copeland,50,0.36
+20,"(500, 501)",IC,GETCHA,50,0.52
+20,"(500, 501)",IC,Uncovered Set,50,0.52
+20,"(1000, 1001)",IC,Split Cycle,50,0.46
+20,"(1000, 1001)",IC,Beat Path,50,0.0
+20,"(1000, 1001)",IC,Copeland,50,0.0
+20,"(1000, 1001)",IC,GETCHA,50,0.62
+20,"(1000, 1001)",IC,Uncovered Set,50,0.62
+20,"(5000, 5001)",IC,Split Cycle,50,0.36
+20,"(5000, 5001)",IC,Beat Path,50,0.0
+20,"(5000, 5001)",IC,Copeland,50,0.26
+20,"(5000, 5001)",IC,GETCHA,50,0.64
+20,"(5000, 5001)",IC,Uncovered Set,50,0.64
+30,"(4, 5)",IC,Split Cycle,50,0.7
+30,"(4, 5)",IC,Beat Path,50,0.64
+30,"(4, 5)",IC,Copeland,50,0.22
+30,"(4, 5)",IC,GETCHA,50,0.74
+30,"(4, 5)",IC,Uncovered Set,50,0.74
+30,"(10, 11)",IC,Split Cycle,50,0.68
+30,"(10, 11)",IC,Beat Path,50,0.58
+30,"(10, 11)",IC,Copeland,50,0.04
+30,"(10, 11)",IC,GETCHA,50,0.76
+30,"(10, 11)",IC,Uncovered Set,50,0.76
+30,"(20, 21)",IC,Split Cycle,50,0.72
+30,"(20, 21)",IC,Beat Path,50,0.3
+30,"(20, 21)",IC,Copeland,50,0.06
+30,"(20, 21)",IC,GETCHA,50,0.82
+30,"(20, 21)",IC,Uncovered Set,50,0.82
+30,"(50, 51)",IC,Split Cycle,50,0.5
+30,"(50, 51)",IC,Beat Path,50,0.3
+30,"(50, 51)",IC,Copeland,50,0.16
+30,"(50, 51)",IC,GETCHA,50,0.9
+30,"(50, 51)",IC,Uncovered Set,50,0.9
+30,"(100, 101)",IC,Split Cycle,50,0.6
+30,"(100, 101)",IC,Beat Path,50,0.28
+30,"(100, 101)",IC,Copeland,50,0.08
+30,"(100, 101)",IC,GETCHA,50,0.9
+30,"(100, 101)",IC,Uncovered Set,50,0.9
+30,"(500, 501)",IC,Split Cycle,50,0.18
+30,"(500, 501)",IC,Beat Path,50,0.0
+30,"(500, 501)",IC,Copeland,50,0.08
+30,"(500, 501)",IC,GETCHA,50,0.54
+30,"(500, 501)",IC,Uncovered Set,50,0.54
+30,"(1000, 1001)",IC,Split Cycle,50,0.32
+30,"(1000, 1001)",IC,Beat Path,50,0.06
+30,"(1000, 1001)",IC,Copeland,50,0.24
+30,"(1000, 1001)",IC,GETCHA,50,0.92
+30,"(1000, 1001)",IC,Uncovered Set,50,0.92
+30,"(5000, 5001)",IC,Split Cycle,50,0.32
+30,"(5000, 5001)",IC,Beat Path,50,0.04
+30,"(5000, 5001)",IC,Copeland,50,0.0
+30,"(5000, 5001)",IC,GETCHA,50,0.7
+30,"(5000, 5001)",IC,Uncovered Set,50,0.7
+5,"(4, 5)",IAC,Split Cycle,50,0.36
+5,"(4, 5)",IAC,Beat Path,50,0.36
+5,"(4, 5)",IAC,Copeland,50,0.18
+5,"(4, 5)",IAC,GETCHA,50,0.4
+5,"(4, 5)",IAC,Uncovered Set,50,0.4
+5,"(10, 11)",IAC,Split Cycle,50,0.28
+5,"(10, 11)",IAC,Beat Path,50,0.28
+5,"(10, 11)",IAC,Copeland,50,0.1
+5,"(10, 11)",IAC,GETCHA,50,0.3
+5,"(10, 11)",IAC,Uncovered Set,50,0.3
+5,"(20, 21)",IAC,Split Cycle,50,0.34
+5,"(20, 21)",IAC,Beat Path,50,0.34
+5,"(20, 21)",IAC,Copeland,50,0.16
+5,"(20, 21)",IAC,GETCHA,50,0.4
+5,"(20, 21)",IAC,Uncovered Set,50,0.4
+5,"(50, 51)",IAC,Split Cycle,50,0.18
+5,"(50, 51)",IAC,Beat Path,50,0.18
+5,"(50, 51)",IAC,Copeland,50,0.08
+5,"(50, 51)",IAC,GETCHA,50,0.24
+5,"(50, 51)",IAC,Uncovered Set,50,0.24
+5,"(100, 101)",IAC,Split Cycle,50,0.08
+5,"(100, 101)",IAC,Beat Path,50,0.08
+5,"(100, 101)",IAC,Copeland,50,0.2
+5,"(100, 101)",IAC,GETCHA,50,0.3
+5,"(100, 101)",IAC,Uncovered Set,50,0.3
+5,"(500, 501)",IAC,Split Cycle,50,0.04
+5,"(500, 501)",IAC,Beat Path,50,0.02
+5,"(500, 501)",IAC,Copeland,50,0.18
+5,"(500, 501)",IAC,GETCHA,50,0.26
+5,"(500, 501)",IAC,Uncovered Set,50,0.26
+5,"(1000, 1001)",IAC,Split Cycle,50,0.04
+5,"(1000, 1001)",IAC,Beat Path,50,0.0
+5,"(1000, 1001)",IAC,Copeland,50,0.2
+5,"(1000, 1001)",IAC,GETCHA,50,0.24
+5,"(1000, 1001)",IAC,Uncovered Set,50,0.24
+5,"(5000, 5001)",IAC,Split Cycle,50,0.02
+5,"(5000, 5001)",IAC,Beat Path,50,0.0
+5,"(5000, 5001)",IAC,Copeland,50,0.26
+5,"(5000, 5001)",IAC,GETCHA,50,0.3
+5,"(5000, 5001)",IAC,Uncovered Set,50,0.3
+7,"(4, 5)",IAC,Split Cycle,50,0.3
+7,"(4, 5)",IAC,Beat Path,50,0.3
+7,"(4, 5)",IAC,Copeland,50,0.1
+7,"(4, 5)",IAC,GETCHA,50,0.44
+7,"(4, 5)",IAC,Uncovered Set,50,0.44
+7,"(10, 11)",IAC,Split Cycle,50,0.62
+7,"(10, 11)",IAC,Beat Path,50,0.58
+7,"(10, 11)",IAC,Copeland,50,0.24
+7,"(10, 11)",IAC,GETCHA,50,0.72
+7,"(10, 11)",IAC,Uncovered Set,50,0.72
+7,"(20, 21)",IAC,Split Cycle,50,0.46
+7,"(20, 21)",IAC,Beat Path,50,0.36
+7,"(20, 21)",IAC,Copeland,50,0.38
+7,"(20, 21)",IAC,GETCHA,50,0.76
+7,"(20, 21)",IAC,Uncovered Set,50,0.76
+7,"(50, 51)",IAC,Split Cycle,50,0.32
+7,"(50, 51)",IAC,Beat Path,50,0.2
+7,"(50, 51)",IAC,Copeland,50,0.22
+7,"(50, 51)",IAC,GETCHA,50,0.54
+7,"(50, 51)",IAC,Uncovered Set,50,0.54
+7,"(100, 101)",IAC,Split Cycle,50,0.3
+7,"(100, 101)",IAC,Beat Path,50,0.24
+7,"(100, 101)",IAC,Copeland,50,0.16
+7,"(100, 101)",IAC,GETCHA,50,0.6
+7,"(100, 101)",IAC,Uncovered Set,50,0.6
+7,"(500, 501)",IAC,Split Cycle,50,0.1
+7,"(500, 501)",IAC,Beat Path,50,0.06
+7,"(500, 501)",IAC,Copeland,50,0.28
+7,"(500, 501)",IAC,GETCHA,50,0.48
+7,"(500, 501)",IAC,Uncovered Set,50,0.48
+7,"(1000, 1001)",IAC,Split Cycle,50,0.12
+7,"(1000, 1001)",IAC,Beat Path,50,0.02
+7,"(1000, 1001)",IAC,Copeland,50,0.12
+7,"(1000, 1001)",IAC,GETCHA,50,0.42
+7,"(1000, 1001)",IAC,Uncovered Set,50,0.42
+7,"(5000, 5001)",IAC,Split Cycle,50,0.2
+7,"(5000, 5001)",IAC,Beat Path,50,0.1
+7,"(5000, 5001)",IAC,Copeland,50,0.26
+7,"(5000, 5001)",IAC,GETCHA,50,0.48
+7,"(5000, 5001)",IAC,Uncovered Set,50,0.48
+10,"(4, 5)",IAC,Split Cycle,50,0.46
+10,"(4, 5)",IAC,Beat Path,50,0.4
+10,"(4, 5)",IAC,Copeland,50,0.24
+10,"(4, 5)",IAC,GETCHA,50,0.5
+10,"(4, 5)",IAC,Uncovered Set,50,0.5
+10,"(10, 11)",IAC,Split Cycle,50,0.56
+10,"(10, 11)",IAC,Beat Path,50,0.56
+10,"(10, 11)",IAC,Copeland,50,0.16
+10,"(10, 11)",IAC,GETCHA,50,0.66
+10,"(10, 11)",IAC,Uncovered Set,50,0.66
+10,"(20, 21)",IAC,Split Cycle,50,0.36
+10,"(20, 21)",IAC,Beat Path,50,0.26
+10,"(20, 21)",IAC,Copeland,50,0.16
+10,"(20, 21)",IAC,GETCHA,50,0.62
+10,"(20, 21)",IAC,Uncovered Set,50,0.62
+10,"(50, 51)",IAC,Split Cycle,50,0.26
+10,"(50, 51)",IAC,Beat Path,50,0.16
+10,"(50, 51)",IAC,Copeland,50,0.24
+10,"(50, 51)",IAC,GETCHA,50,0.68
+10,"(50, 51)",IAC,Uncovered Set,50,0.68
+10,"(100, 101)",IAC,Split Cycle,50,0.42
+10,"(100, 101)",IAC,Beat Path,50,0.28
+10,"(100, 101)",IAC,Copeland,50,0.4
+10,"(100, 101)",IAC,GETCHA,50,0.74
+10,"(100, 101)",IAC,Uncovered Set,50,0.74
+10,"(500, 501)",IAC,Split Cycle,50,0.44
+10,"(500, 501)",IAC,Beat Path,50,0.08
+10,"(500, 501)",IAC,Copeland,50,0.44
+10,"(500, 501)",IAC,GETCHA,50,0.7
+10,"(500, 501)",IAC,Uncovered Set,50,0.7
+10,"(1000, 1001)",IAC,Split Cycle,50,0.1
+10,"(1000, 1001)",IAC,Beat Path,50,0.0
+10,"(1000, 1001)",IAC,Copeland,50,0.2
+10,"(1000, 1001)",IAC,GETCHA,50,0.5
+10,"(1000, 1001)",IAC,Uncovered Set,50,0.5
+10,"(5000, 5001)",IAC,Split Cycle,50,0.22
+10,"(5000, 5001)",IAC,Beat Path,50,0.0
+10,"(5000, 5001)",IAC,Copeland,50,0.38
+10,"(5000, 5001)",IAC,GETCHA,50,0.62
+10,"(5000, 5001)",IAC,Uncovered Set,50,0.62
+20,"(4, 5)",IAC,Split Cycle,50,0.88
+20,"(4, 5)",IAC,Beat Path,50,0.82
+20,"(4, 5)",IAC,Copeland,50,0.28
+20,"(4, 5)",IAC,GETCHA,50,0.92
+20,"(4, 5)",IAC,Uncovered Set,50,0.92
+20,"(10, 11)",IAC,Split Cycle,50,0.82
+20,"(10, 11)",IAC,Beat Path,50,0.66
+20,"(10, 11)",IAC,Copeland,50,0.36
+20,"(10, 11)",IAC,GETCHA,50,0.96
+20,"(10, 11)",IAC,Uncovered Set,50,0.96
+20,"(20, 21)",IAC,Split Cycle,50,0.56
+20,"(20, 21)",IAC,Beat Path,50,0.28
+20,"(20, 21)",IAC,Copeland,50,0.14
+20,"(20, 21)",IAC,GETCHA,50,0.8
+20,"(20, 21)",IAC,Uncovered Set,50,0.8
+20,"(50, 51)",IAC,Split Cycle,50,0.34
+20,"(50, 51)",IAC,Beat Path,50,0.18
+20,"(50, 51)",IAC,Copeland,50,0.04
+20,"(50, 51)",IAC,GETCHA,50,0.56
+20,"(50, 51)",IAC,Uncovered Set,50,0.56
+20,"(100, 101)",IAC,Split Cycle,50,0.48
+20,"(100, 101)",IAC,Beat Path,50,0.28
+20,"(100, 101)",IAC,Copeland,50,0.3
+20,"(100, 101)",IAC,GETCHA,50,0.86
+20,"(100, 101)",IAC,Uncovered Set,50,0.86
+20,"(500, 501)",IAC,Split Cycle,50,0.4
+20,"(500, 501)",IAC,Beat Path,50,0.06
+20,"(500, 501)",IAC,Copeland,50,0.36
+20,"(500, 501)",IAC,GETCHA,50,0.5
+20,"(500, 501)",IAC,Uncovered Set,50,0.5
+20,"(1000, 1001)",IAC,Split Cycle,50,0.46
+20,"(1000, 1001)",IAC,Beat Path,50,0.0
+20,"(1000, 1001)",IAC,Copeland,50,0.0
+20,"(1000, 1001)",IAC,GETCHA,50,0.6
+20,"(1000, 1001)",IAC,Uncovered Set,50,0.6
+20,"(5000, 5001)",IAC,Split Cycle,50,0.4
+20,"(5000, 5001)",IAC,Beat Path,50,0.0
+20,"(5000, 5001)",IAC,Copeland,50,0.26
+20,"(5000, 5001)",IAC,GETCHA,50,0.66
+20,"(5000, 5001)",IAC,Uncovered Set,50,0.66
+30,"(4, 5)",IAC,Split Cycle,50,0.62
+30,"(4, 5)",IAC,Beat Path,50,0.58
+30,"(4, 5)",IAC,Copeland,50,0.22
+30,"(4, 5)",IAC,GETCHA,50,0.66
+30,"(4, 5)",IAC,Uncovered Set,50,0.66
+30,"(10, 11)",IAC,Split Cycle,50,0.6
+30,"(10, 11)",IAC,Beat Path,50,0.52
+30,"(10, 11)",IAC,Copeland,50,0.04
+30,"(10, 11)",IAC,GETCHA,50,0.72
+30,"(10, 11)",IAC,Uncovered Set,50,0.72
+30,"(20, 21)",IAC,Split Cycle,50,0.72
+30,"(20, 21)",IAC,Beat Path,50,0.32
+30,"(20, 21)",IAC,Copeland,50,0.06
+30,"(20, 21)",IAC,GETCHA,50,0.8
+30,"(20, 21)",IAC,Uncovered Set,50,0.8
+30,"(50, 51)",IAC,Split Cycle,50,0.54
+30,"(50, 51)",IAC,Beat Path,50,0.34
+30,"(50, 51)",IAC,Copeland,50,0.14
+30,"(50, 51)",IAC,GETCHA,50,0.9
+30,"(50, 51)",IAC,Uncovered Set,50,0.9
+30,"(100, 101)",IAC,Split Cycle,50,0.58
+30,"(100, 101)",IAC,Beat Path,50,0.26
+30,"(100, 101)",IAC,Copeland,50,0.12
+30,"(100, 101)",IAC,GETCHA,50,0.92
+30,"(100, 101)",IAC,Uncovered Set,50,0.92
+30,"(500, 501)",IAC,Split Cycle,50,0.2
+30,"(500, 501)",IAC,Beat Path,50,0.0
+30,"(500, 501)",IAC,Copeland,50,0.1
+30,"(500, 501)",IAC,GETCHA,50,0.56
+30,"(500, 501)",IAC,Uncovered Set,50,0.56
+30,"(1000, 1001)",IAC,Split Cycle,50,0.3
+30,"(1000, 1001)",IAC,Beat Path,50,0.04
+30,"(1000, 1001)",IAC,Copeland,50,0.28
+30,"(1000, 1001)",IAC,GETCHA,50,0.92
+30,"(1000, 1001)",IAC,Uncovered Set,50,0.92
+30,"(5000, 5001)",IAC,Split Cycle,50,0.3
+30,"(5000, 5001)",IAC,Beat Path,50,0.06
+30,"(5000, 5001)",IAC,Copeland,50,0.0
+30,"(5000, 5001)",IAC,GETCHA,50,0.7
+30,"(5000, 5001)",IAC,Uncovered Set,50,0.7
+5,"(4, 5)",URN-R,Split Cycle,50,0.18
+5,"(4, 5)",URN-R,Beat Path,50,0.18
+5,"(4, 5)",URN-R,Copeland,50,0.02
+5,"(4, 5)",URN-R,GETCHA,50,0.18
+5,"(4, 5)",URN-R,Uncovered Set,50,0.18
+5,"(10, 11)",URN-R,Split Cycle,50,0.12
+5,"(10, 11)",URN-R,Beat Path,50,0.12
+5,"(10, 11)",URN-R,Copeland,50,0.02
+5,"(10, 11)",URN-R,GETCHA,50,0.14
+5,"(10, 11)",URN-R,Uncovered Set,50,0.14
+5,"(20, 21)",URN-R,Split Cycle,50,0.02
+5,"(20, 21)",URN-R,Beat Path,50,0.02
+5,"(20, 21)",URN-R,Copeland,50,0.0
+5,"(20, 21)",URN-R,GETCHA,50,0.04
+5,"(20, 21)",URN-R,Uncovered Set,50,0.04
+5,"(50, 51)",URN-R,Split Cycle,50,0.04
+5,"(50, 51)",URN-R,Beat Path,50,0.04
+5,"(50, 51)",URN-R,Copeland,50,0.04
+5,"(50, 51)",URN-R,GETCHA,50,0.1
+5,"(50, 51)",URN-R,Uncovered Set,50,0.1
+5,"(100, 101)",URN-R,Split Cycle,50,0.02
+5,"(100, 101)",URN-R,Beat Path,50,0.02
+5,"(100, 101)",URN-R,Copeland,50,0.06
+5,"(100, 101)",URN-R,GETCHA,50,0.06
+5,"(100, 101)",URN-R,Uncovered Set,50,0.06
+5,"(500, 501)",URN-R,Split Cycle,50,0.02
+5,"(500, 501)",URN-R,Beat Path,50,0.02
+5,"(500, 501)",URN-R,Copeland,50,0.04
+5,"(500, 501)",URN-R,GETCHA,50,0.04
+5,"(500, 501)",URN-R,Uncovered Set,50,0.04
+5,"(1000, 1001)",URN-R,Split Cycle,50,0.0
+5,"(1000, 1001)",URN-R,Beat Path,50,0.0
+5,"(1000, 1001)",URN-R,Copeland,50,0.08
+5,"(1000, 1001)",URN-R,GETCHA,50,0.1
+5,"(1000, 1001)",URN-R,Uncovered Set,50,0.1
+5,"(5000, 5001)",URN-R,Split Cycle,50,0.0
+5,"(5000, 5001)",URN-R,Beat Path,50,0.0
+5,"(5000, 5001)",URN-R,Copeland,50,0.02
+5,"(5000, 5001)",URN-R,GETCHA,50,0.02
+5,"(5000, 5001)",URN-R,Uncovered Set,50,0.02
+7,"(4, 5)",URN-R,Split Cycle,50,0.18
+7,"(4, 5)",URN-R,Beat Path,50,0.18
+7,"(4, 5)",URN-R,Copeland,50,0.06
+7,"(4, 5)",URN-R,GETCHA,50,0.2
+7,"(4, 5)",URN-R,Uncovered Set,50,0.2
+7,"(10, 11)",URN-R,Split Cycle,50,0.12
+7,"(10, 11)",URN-R,Beat Path,50,0.12
+7,"(10, 11)",URN-R,Copeland,50,0.12
+7,"(10, 11)",URN-R,GETCHA,50,0.2
+7,"(10, 11)",URN-R,Uncovered Set,50,0.2
+7,"(20, 21)",URN-R,Split Cycle,50,0.06
+7,"(20, 21)",URN-R,Beat Path,50,0.06
+7,"(20, 21)",URN-R,Copeland,50,0.08
+7,"(20, 21)",URN-R,GETCHA,50,0.16
+7,"(20, 21)",URN-R,Uncovered Set,50,0.16
+7,"(50, 51)",URN-R,Split Cycle,50,0.02
+7,"(50, 51)",URN-R,Beat Path,50,0.02
+7,"(50, 51)",URN-R,Copeland,50,0.08
+7,"(50, 51)",URN-R,GETCHA,50,0.16
+7,"(50, 51)",URN-R,Uncovered Set,50,0.16
+7,"(100, 101)",URN-R,Split Cycle,50,0.08
+7,"(100, 101)",URN-R,Beat Path,50,0.02
+7,"(100, 101)",URN-R,Copeland,50,0.08
+7,"(100, 101)",URN-R,GETCHA,50,0.12
+7,"(100, 101)",URN-R,Uncovered Set,50,0.12
+7,"(500, 501)",URN-R,Split Cycle,50,0.0
+7,"(500, 501)",URN-R,Beat Path,50,0.0
+7,"(500, 501)",URN-R,Copeland,50,0.04
+7,"(500, 501)",URN-R,GETCHA,50,0.06
+7,"(500, 501)",URN-R,Uncovered Set,50,0.06
+7,"(1000, 1001)",URN-R,Split Cycle,50,0.0
+7,"(1000, 1001)",URN-R,Beat Path,50,0.0
+7,"(1000, 1001)",URN-R,Copeland,50,0.0
+7,"(1000, 1001)",URN-R,GETCHA,50,0.04
+7,"(1000, 1001)",URN-R,Uncovered Set,50,0.04
+7,"(5000, 5001)",URN-R,Split Cycle,50,0.0
+7,"(5000, 5001)",URN-R,Beat Path,50,0.0
+7,"(5000, 5001)",URN-R,Copeland,50,0.1
+7,"(5000, 5001)",URN-R,GETCHA,50,0.14
+7,"(5000, 5001)",URN-R,Uncovered Set,50,0.14
+10,"(4, 5)",URN-R,Split Cycle,50,0.16
+10,"(4, 5)",URN-R,Beat Path,50,0.16
+10,"(4, 5)",URN-R,Copeland,50,0.0
+10,"(4, 5)",URN-R,GETCHA,50,0.22
+10,"(4, 5)",URN-R,Uncovered Set,50,0.22
+10,"(10, 11)",URN-R,Split Cycle,50,0.14
+10,"(10, 11)",URN-R,Beat Path,50,0.12
+10,"(10, 11)",URN-R,Copeland,50,0.06
+10,"(10, 11)",URN-R,GETCHA,50,0.2
+10,"(10, 11)",URN-R,Uncovered Set,50,0.2
+10,"(20, 21)",URN-R,Split Cycle,50,0.08
+10,"(20, 21)",URN-R,Beat Path,50,0.08
+10,"(20, 21)",URN-R,Copeland,50,0.04
+10,"(20, 21)",URN-R,GETCHA,50,0.18
+10,"(20, 21)",URN-R,Uncovered Set,50,0.18
+10,"(50, 51)",URN-R,Split Cycle,50,0.08
+10,"(50, 51)",URN-R,Beat Path,50,0.04
+10,"(50, 51)",URN-R,Copeland,50,0.1
+10,"(50, 51)",URN-R,GETCHA,50,0.18
+10,"(50, 51)",URN-R,Uncovered Set,50,0.18
+10,"(100, 101)",URN-R,Split Cycle,50,0.02
+10,"(100, 101)",URN-R,Beat Path,50,0.02
+10,"(100, 101)",URN-R,Copeland,50,0.08
+10,"(100, 101)",URN-R,GETCHA,50,0.14
+10,"(100, 101)",URN-R,Uncovered Set,50,0.14
+10,"(500, 501)",URN-R,Split Cycle,50,0.02
+10,"(500, 501)",URN-R,Beat Path,50,0.0
+10,"(500, 501)",URN-R,Copeland,50,0.06
+10,"(500, 501)",URN-R,GETCHA,50,0.1
+10,"(500, 501)",URN-R,Uncovered Set,50,0.1
+10,"(1000, 1001)",URN-R,Split Cycle,50,0.04
+10,"(1000, 1001)",URN-R,Beat Path,50,0.0
+10,"(1000, 1001)",URN-R,Copeland,50,0.08
+10,"(1000, 1001)",URN-R,GETCHA,50,0.18
+10,"(1000, 1001)",URN-R,Uncovered Set,50,0.18
+10,"(5000, 5001)",URN-R,Split Cycle,50,0.08
+10,"(5000, 5001)",URN-R,Beat Path,50,0.0
+10,"(5000, 5001)",URN-R,Copeland,50,0.12
+10,"(5000, 5001)",URN-R,GETCHA,50,0.2
+10,"(5000, 5001)",URN-R,Uncovered Set,50,0.2
+20,"(4, 5)",URN-R,Split Cycle,50,0.28
+20,"(4, 5)",URN-R,Beat Path,50,0.28
+20,"(4, 5)",URN-R,Copeland,50,0.08
+20,"(4, 5)",URN-R,GETCHA,50,0.32
+20,"(4, 5)",URN-R,Uncovered Set,50,0.32
+20,"(10, 11)",URN-R,Split Cycle,50,0.24
+20,"(10, 11)",URN-R,Beat Path,50,0.2
+20,"(10, 11)",URN-R,Copeland,50,0.08
+20,"(10, 11)",URN-R,GETCHA,50,0.3
+20,"(10, 11)",URN-R,Uncovered Set,50,0.3
+20,"(20, 21)",URN-R,Split Cycle,50,0.14
+20,"(20, 21)",URN-R,Beat Path,50,0.12
+20,"(20, 21)",URN-R,Copeland,50,0.08
+20,"(20, 21)",URN-R,GETCHA,50,0.42
+20,"(20, 21)",URN-R,Uncovered Set,50,0.42
+20,"(50, 51)",URN-R,Split Cycle,50,0.04
+20,"(50, 51)",URN-R,Beat Path,50,0.02
+20,"(50, 51)",URN-R,Copeland,50,0.06
+20,"(50, 51)",URN-R,GETCHA,50,0.28
+20,"(50, 51)",URN-R,Uncovered Set,50,0.28
+20,"(100, 101)",URN-R,Split Cycle,50,0.18
+20,"(100, 101)",URN-R,Beat Path,50,0.02
+20,"(100, 101)",URN-R,Copeland,50,0.08
+20,"(100, 101)",URN-R,GETCHA,50,0.28
+20,"(100, 101)",URN-R,Uncovered Set,50,0.28
+20,"(500, 501)",URN-R,Split Cycle,50,0.04
+20,"(500, 501)",URN-R,Beat Path,50,0.0
+20,"(500, 501)",URN-R,Copeland,50,0.1
+20,"(500, 501)",URN-R,GETCHA,50,0.26
+20,"(500, 501)",URN-R,Uncovered Set,50,0.26
+20,"(1000, 1001)",URN-R,Split Cycle,50,0.08
+20,"(1000, 1001)",URN-R,Beat Path,50,0.0
+20,"(1000, 1001)",URN-R,Copeland,50,0.04
+20,"(1000, 1001)",URN-R,GETCHA,50,0.14
+20,"(1000, 1001)",URN-R,Uncovered Set,50,0.14
+20,"(5000, 5001)",URN-R,Split Cycle,50,0.1
+20,"(5000, 5001)",URN-R,Beat Path,50,0.0
+20,"(5000, 5001)",URN-R,Copeland,50,0.08
+20,"(5000, 5001)",URN-R,GETCHA,50,0.24
+20,"(5000, 5001)",URN-R,Uncovered Set,50,0.24
+30,"(4, 5)",URN-R,Split Cycle,50,0.2
+30,"(4, 5)",URN-R,Beat Path,50,0.2
+30,"(4, 5)",URN-R,Copeland,50,0.1
+30,"(4, 5)",URN-R,GETCHA,50,0.32
+30,"(4, 5)",URN-R,Uncovered Set,50,0.32
+30,"(10, 11)",URN-R,Split Cycle,50,0.24
+30,"(10, 11)",URN-R,Beat Path,50,0.16
+30,"(10, 11)",URN-R,Copeland,50,0.04
+30,"(10, 11)",URN-R,GETCHA,50,0.36
+30,"(10, 11)",URN-R,Uncovered Set,50,0.36
+30,"(20, 21)",URN-R,Split Cycle,50,0.1
+30,"(20, 21)",URN-R,Beat Path,50,0.04
+30,"(20, 21)",URN-R,Copeland,50,0.06
+30,"(20, 21)",URN-R,GETCHA,50,0.24
+30,"(20, 21)",URN-R,Uncovered Set,50,0.24
+30,"(50, 51)",URN-R,Split Cycle,50,0.08
+30,"(50, 51)",URN-R,Beat Path,50,0.02
+30,"(50, 51)",URN-R,Copeland,50,0.08
+30,"(50, 51)",URN-R,GETCHA,50,0.32
+30,"(50, 51)",URN-R,Uncovered Set,50,0.32
+30,"(100, 101)",URN-R,Split Cycle,50,0.16
+30,"(100, 101)",URN-R,Beat Path,50,0.06
+30,"(100, 101)",URN-R,Copeland,50,0.12
+30,"(100, 101)",URN-R,GETCHA,50,0.4
+30,"(100, 101)",URN-R,Uncovered Set,50,0.4
+30,"(500, 501)",URN-R,Split Cycle,50,0.12
+30,"(500, 501)",URN-R,Beat Path,50,0.02
+30,"(500, 501)",URN-R,Copeland,50,0.12
+30,"(500, 501)",URN-R,GETCHA,50,0.4
+30,"(500, 501)",URN-R,Uncovered Set,50,0.4
+30,"(1000, 1001)",URN-R,Split Cycle,50,0.1
+30,"(1000, 1001)",URN-R,Beat Path,50,0.0
+30,"(1000, 1001)",URN-R,Copeland,50,0.06
+30,"(1000, 1001)",URN-R,GETCHA,50,0.38
+30,"(1000, 1001)",URN-R,Uncovered Set,50,0.38
+30,"(5000, 5001)",URN-R,Split Cycle,50,0.14
+30,"(5000, 5001)",URN-R,Beat Path,50,0.04
+30,"(5000, 5001)",URN-R,Copeland,50,0.08
+30,"(5000, 5001)",URN-R,GETCHA,50,0.24
+30,"(5000, 5001)",URN-R,Uncovered Set,50,0.24
+5,"(4, 5)",MALLOWS-RELPHI-R,Split Cycle,50,0.16
+5,"(4, 5)",MALLOWS-RELPHI-R,Beat Path,50,0.16
+5,"(4, 5)",MALLOWS-RELPHI-R,Copeland,50,0.1
+5,"(4, 5)",MALLOWS-RELPHI-R,GETCHA,50,0.24
+5,"(4, 5)",MALLOWS-RELPHI-R,Uncovered Set,50,0.24
+5,"(10, 11)",MALLOWS-RELPHI-R,Split Cycle,50,0.14
+5,"(10, 11)",MALLOWS-RELPHI-R,Beat Path,50,0.14
+5,"(10, 11)",MALLOWS-RELPHI-R,Copeland,50,0.12
+5,"(10, 11)",MALLOWS-RELPHI-R,GETCHA,50,0.18
+5,"(10, 11)",MALLOWS-RELPHI-R,Uncovered Set,50,0.18
+5,"(20, 21)",MALLOWS-RELPHI-R,Split Cycle,50,0.12
+5,"(20, 21)",MALLOWS-RELPHI-R,Beat Path,50,0.12
+5,"(20, 21)",MALLOWS-RELPHI-R,Copeland,50,0.08
+5,"(20, 21)",MALLOWS-RELPHI-R,GETCHA,50,0.12
+5,"(20, 21)",MALLOWS-RELPHI-R,Uncovered Set,50,0.12
+5,"(50, 51)",MALLOWS-RELPHI-R,Split Cycle,50,0.02
+5,"(50, 51)",MALLOWS-RELPHI-R,Beat Path,50,0.02
+5,"(50, 51)",MALLOWS-RELPHI-R,Copeland,50,0.0
+5,"(50, 51)",MALLOWS-RELPHI-R,GETCHA,50,0.04
+5,"(50, 51)",MALLOWS-RELPHI-R,Uncovered Set,50,0.04
+5,"(100, 101)",MALLOWS-RELPHI-R,Split Cycle,50,0.0
+5,"(100, 101)",MALLOWS-RELPHI-R,Beat Path,50,0.0
+5,"(100, 101)",MALLOWS-RELPHI-R,Copeland,50,0.02
+5,"(100, 101)",MALLOWS-RELPHI-R,GETCHA,50,0.04
+5,"(100, 101)",MALLOWS-RELPHI-R,Uncovered Set,50,0.04
+5,"(500, 501)",MALLOWS-RELPHI-R,Split Cycle,50,0.0
+5,"(500, 501)",MALLOWS-RELPHI-R,Beat Path,50,0.0
+5,"(500, 501)",MALLOWS-RELPHI-R,Copeland,50,0.0
+5,"(500, 501)",MALLOWS-RELPHI-R,GETCHA,50,0.0
+5,"(500, 501)",MALLOWS-RELPHI-R,Uncovered Set,50,0.0
+5,"(1000, 1001)",MALLOWS-RELPHI-R,Split Cycle,50,0.0
+5,"(1000, 1001)",MALLOWS-RELPHI-R,Beat Path,50,0.0
+5,"(1000, 1001)",MALLOWS-RELPHI-R,Copeland,50,0.0
+5,"(1000, 1001)",MALLOWS-RELPHI-R,GETCHA,50,0.0
+5,"(1000, 1001)",MALLOWS-RELPHI-R,Uncovered Set,50,0.0
+5,"(5000, 5001)",MALLOWS-RELPHI-R,Split Cycle,50,0.0
+5,"(5000, 5001)",MALLOWS-RELPHI-R,Beat Path,50,0.0
+5,"(5000, 5001)",MALLOWS-RELPHI-R,Copeland,50,0.0
+5,"(5000, 5001)",MALLOWS-RELPHI-R,GETCHA,50,0.0
+5,"(5000, 5001)",MALLOWS-RELPHI-R,Uncovered Set,50,0.0
+7,"(4, 5)",MALLOWS-RELPHI-R,Split Cycle,50,0.24
+7,"(4, 5)",MALLOWS-RELPHI-R,Beat Path,50,0.24
+7,"(4, 5)",MALLOWS-RELPHI-R,Copeland,50,0.06
+7,"(4, 5)",MALLOWS-RELPHI-R,GETCHA,50,0.26
+7,"(4, 5)",MALLOWS-RELPHI-R,Uncovered Set,50,0.26
+7,"(10, 11)",MALLOWS-RELPHI-R,Split Cycle,50,0.2
+7,"(10, 11)",MALLOWS-RELPHI-R,Beat Path,50,0.2
+7,"(10, 11)",MALLOWS-RELPHI-R,Copeland,50,0.1
+7,"(10, 11)",MALLOWS-RELPHI-R,GETCHA,50,0.24
+7,"(10, 11)",MALLOWS-RELPHI-R,Uncovered Set,50,0.24
+7,"(20, 21)",MALLOWS-RELPHI-R,Split Cycle,50,0.16
+7,"(20, 21)",MALLOWS-RELPHI-R,Beat Path,50,0.14
+7,"(20, 21)",MALLOWS-RELPHI-R,Copeland,50,0.14
+7,"(20, 21)",MALLOWS-RELPHI-R,GETCHA,50,0.22
+7,"(20, 21)",MALLOWS-RELPHI-R,Uncovered Set,50,0.22
+7,"(50, 51)",MALLOWS-RELPHI-R,Split Cycle,50,0.04
+7,"(50, 51)",MALLOWS-RELPHI-R,Beat Path,50,0.02
+7,"(50, 51)",MALLOWS-RELPHI-R,Copeland,50,0.02
+7,"(50, 51)",MALLOWS-RELPHI-R,GETCHA,50,0.06
+7,"(50, 51)",MALLOWS-RELPHI-R,Uncovered Set,50,0.06
+7,"(100, 101)",MALLOWS-RELPHI-R,Split Cycle,50,0.02
+7,"(100, 101)",MALLOWS-RELPHI-R,Beat Path,50,0.02
+7,"(100, 101)",MALLOWS-RELPHI-R,Copeland,50,0.02
+7,"(100, 101)",MALLOWS-RELPHI-R,GETCHA,50,0.04
+7,"(100, 101)",MALLOWS-RELPHI-R,Uncovered Set,50,0.04
+7,"(500, 501)",MALLOWS-RELPHI-R,Split Cycle,50,0.0
+7,"(500, 501)",MALLOWS-RELPHI-R,Beat Path,50,0.0
+7,"(500, 501)",MALLOWS-RELPHI-R,Copeland,50,0.0
+7,"(500, 501)",MALLOWS-RELPHI-R,GETCHA,50,0.0
+7,"(500, 501)",MALLOWS-RELPHI-R,Uncovered Set,50,0.0
+7,"(1000, 1001)",MALLOWS-RELPHI-R,Split Cycle,50,0.0
+7,"(1000, 1001)",MALLOWS-RELPHI-R,Beat Path,50,0.0
+7,"(1000, 1001)",MALLOWS-RELPHI-R,Copeland,50,0.0
+7,"(1000, 1001)",MALLOWS-RELPHI-R,GETCHA,50,0.0
+7,"(1000, 1001)",MALLOWS-RELPHI-R,Uncovered Set,50,0.0
+7,"(5000, 5001)",MALLOWS-RELPHI-R,Split Cycle,50,0.0
+7,"(5000, 5001)",MALLOWS-RELPHI-R,Beat Path,50,0.0
+7,"(5000, 5001)",MALLOWS-RELPHI-R,Copeland,50,0.0
+7,"(5000, 5001)",MALLOWS-RELPHI-R,GETCHA,50,0.0
+7,"(5000, 5001)",MALLOWS-RELPHI-R,Uncovered Set,50,0.0
+10,"(4, 5)",MALLOWS-RELPHI-R,Split Cycle,50,0.38
+10,"(4, 5)",MALLOWS-RELPHI-R,Beat Path,50,0.36
+10,"(4, 5)",MALLOWS-RELPHI-R,Copeland,50,0.14
+10,"(4, 5)",MALLOWS-RELPHI-R,GETCHA,50,0.38
+10,"(4, 5)",MALLOWS-RELPHI-R,Uncovered Set,50,0.38
+10,"(10, 11)",MALLOWS-RELPHI-R,Split Cycle,50,0.24
+10,"(10, 11)",MALLOWS-RELPHI-R,Beat Path,50,0.2
+10,"(10, 11)",MALLOWS-RELPHI-R,Copeland,50,0.12
+10,"(10, 11)",MALLOWS-RELPHI-R,GETCHA,50,0.32
+10,"(10, 11)",MALLOWS-RELPHI-R,Uncovered Set,50,0.32
+10,"(20, 21)",MALLOWS-RELPHI-R,Split Cycle,50,0.1
+10,"(20, 21)",MALLOWS-RELPHI-R,Beat Path,50,0.08
+10,"(20, 21)",MALLOWS-RELPHI-R,Copeland,50,0.1
+10,"(20, 21)",MALLOWS-RELPHI-R,GETCHA,50,0.18
+10,"(20, 21)",MALLOWS-RELPHI-R,Uncovered Set,50,0.18
+10,"(50, 51)",MALLOWS-RELPHI-R,Split Cycle,50,0.06
+10,"(50, 51)",MALLOWS-RELPHI-R,Beat Path,50,0.04
+10,"(50, 51)",MALLOWS-RELPHI-R,Copeland,50,0.08
+10,"(50, 51)",MALLOWS-RELPHI-R,GETCHA,50,0.16
+10,"(50, 51)",MALLOWS-RELPHI-R,Uncovered Set,50,0.16
+10,"(100, 101)",MALLOWS-RELPHI-R,Split Cycle,50,0.0
+10,"(100, 101)",MALLOWS-RELPHI-R,Beat Path,50,0.0
+10,"(100, 101)",MALLOWS-RELPHI-R,Copeland,50,0.04
+10,"(100, 101)",MALLOWS-RELPHI-R,GETCHA,50,0.06
+10,"(100, 101)",MALLOWS-RELPHI-R,Uncovered Set,50,0.06
+10,"(500, 501)",MALLOWS-RELPHI-R,Split Cycle,50,0.02
+10,"(500, 501)",MALLOWS-RELPHI-R,Beat Path,50,0.02
+10,"(500, 501)",MALLOWS-RELPHI-R,Copeland,50,0.02
+10,"(500, 501)",MALLOWS-RELPHI-R,GETCHA,50,0.02
+10,"(500, 501)",MALLOWS-RELPHI-R,Uncovered Set,50,0.02
+10,"(1000, 1001)",MALLOWS-RELPHI-R,Split Cycle,50,0.0
+10,"(1000, 1001)",MALLOWS-RELPHI-R,Beat Path,50,0.0
+10,"(1000, 1001)",MALLOWS-RELPHI-R,Copeland,50,0.0
+10,"(1000, 1001)",MALLOWS-RELPHI-R,GETCHA,50,0.0
+10,"(1000, 1001)",MALLOWS-RELPHI-R,Uncovered Set,50,0.0
+10,"(5000, 5001)",MALLOWS-RELPHI-R,Split Cycle,50,0.0
+10,"(5000, 5001)",MALLOWS-RELPHI-R,Beat Path,50,0.0
+10,"(5000, 5001)",MALLOWS-RELPHI-R,Copeland,50,0.0
+10,"(5000, 5001)",MALLOWS-RELPHI-R,GETCHA,50,0.0
+10,"(5000, 5001)",MALLOWS-RELPHI-R,Uncovered Set,50,0.0
+20,"(4, 5)",MALLOWS-RELPHI-R,Split Cycle,50,0.36
+20,"(4, 5)",MALLOWS-RELPHI-R,Beat Path,50,0.32
+20,"(4, 5)",MALLOWS-RELPHI-R,Copeland,50,0.14
+20,"(4, 5)",MALLOWS-RELPHI-R,GETCHA,50,0.42
+20,"(4, 5)",MALLOWS-RELPHI-R,Uncovered Set,50,0.42
+20,"(10, 11)",MALLOWS-RELPHI-R,Split Cycle,50,0.24
+20,"(10, 11)",MALLOWS-RELPHI-R,Beat Path,50,0.2
+20,"(10, 11)",MALLOWS-RELPHI-R,Copeland,50,0.12
+20,"(10, 11)",MALLOWS-RELPHI-R,GETCHA,50,0.4
+20,"(10, 11)",MALLOWS-RELPHI-R,Uncovered Set,50,0.4
+20,"(20, 21)",MALLOWS-RELPHI-R,Split Cycle,50,0.2
+20,"(20, 21)",MALLOWS-RELPHI-R,Beat Path,50,0.16
+20,"(20, 21)",MALLOWS-RELPHI-R,Copeland,50,0.12
+20,"(20, 21)",MALLOWS-RELPHI-R,GETCHA,50,0.36
+20,"(20, 21)",MALLOWS-RELPHI-R,Uncovered Set,50,0.36
+20,"(50, 51)",MALLOWS-RELPHI-R,Split Cycle,50,0.08
+20,"(50, 51)",MALLOWS-RELPHI-R,Beat Path,50,0.06
+20,"(50, 51)",MALLOWS-RELPHI-R,Copeland,50,0.06
+20,"(50, 51)",MALLOWS-RELPHI-R,GETCHA,50,0.2
+20,"(50, 51)",MALLOWS-RELPHI-R,Uncovered Set,50,0.2
+20,"(100, 101)",MALLOWS-RELPHI-R,Split Cycle,50,0.06
+20,"(100, 101)",MALLOWS-RELPHI-R,Beat Path,50,0.04
+20,"(100, 101)",MALLOWS-RELPHI-R,Copeland,50,0.02
+20,"(100, 101)",MALLOWS-RELPHI-R,GETCHA,50,0.1
+20,"(100, 101)",MALLOWS-RELPHI-R,Uncovered Set,50,0.1
+20,"(500, 501)",MALLOWS-RELPHI-R,Split Cycle,50,0.0
+20,"(500, 501)",MALLOWS-RELPHI-R,Beat Path,50,0.0
+20,"(500, 501)",MALLOWS-RELPHI-R,Copeland,50,0.0
+20,"(500, 501)",MALLOWS-RELPHI-R,GETCHA,50,0.0
+20,"(500, 501)",MALLOWS-RELPHI-R,Uncovered Set,50,0.0
+20,"(1000, 1001)",MALLOWS-RELPHI-R,Split Cycle,50,0.02
+20,"(1000, 1001)",MALLOWS-RELPHI-R,Beat Path,50,0.02
+20,"(1000, 1001)",MALLOWS-RELPHI-R,Copeland,50,0.02
+20,"(1000, 1001)",MALLOWS-RELPHI-R,GETCHA,50,0.04
+20,"(1000, 1001)",MALLOWS-RELPHI-R,Uncovered Set,50,0.04
+20,"(5000, 5001)",MALLOWS-RELPHI-R,Split Cycle,50,0.0
+20,"(5000, 5001)",MALLOWS-RELPHI-R,Beat Path,50,0.0
+20,"(5000, 5001)",MALLOWS-RELPHI-R,Copeland,50,0.0
+20,"(5000, 5001)",MALLOWS-RELPHI-R,GETCHA,50,0.0
+20,"(5000, 5001)",MALLOWS-RELPHI-R,Uncovered Set,50,0.0
+30,"(4, 5)",MALLOWS-RELPHI-R,Split Cycle,50,0.54
+30,"(4, 5)",MALLOWS-RELPHI-R,Beat Path,50,0.5
+30,"(4, 5)",MALLOWS-RELPHI-R,Copeland,50,0.2
+30,"(4, 5)",MALLOWS-RELPHI-R,GETCHA,50,0.58
+30,"(4, 5)",MALLOWS-RELPHI-R,Uncovered Set,50,0.58
+30,"(10, 11)",MALLOWS-RELPHI-R,Split Cycle,50,0.28
+30,"(10, 11)",MALLOWS-RELPHI-R,Beat Path,50,0.22
+30,"(10, 11)",MALLOWS-RELPHI-R,Copeland,50,0.12
+30,"(10, 11)",MALLOWS-RELPHI-R,GETCHA,50,0.42
+30,"(10, 11)",MALLOWS-RELPHI-R,Uncovered Set,50,0.42
+30,"(20, 21)",MALLOWS-RELPHI-R,Split Cycle,50,0.24
+30,"(20, 21)",MALLOWS-RELPHI-R,Beat Path,50,0.18
+30,"(20, 21)",MALLOWS-RELPHI-R,Copeland,50,0.06
+30,"(20, 21)",MALLOWS-RELPHI-R,GETCHA,50,0.36
+30,"(20, 21)",MALLOWS-RELPHI-R,Uncovered Set,50,0.36
+30,"(50, 51)",MALLOWS-RELPHI-R,Split Cycle,50,0.16
+30,"(50, 51)",MALLOWS-RELPHI-R,Beat Path,50,0.08
+30,"(50, 51)",MALLOWS-RELPHI-R,Copeland,50,0.08
+30,"(50, 51)",MALLOWS-RELPHI-R,GETCHA,50,0.24
+30,"(50, 51)",MALLOWS-RELPHI-R,Uncovered Set,50,0.24
+30,"(100, 101)",MALLOWS-RELPHI-R,Split Cycle,50,0.08
+30,"(100, 101)",MALLOWS-RELPHI-R,Beat Path,50,0.04
+30,"(100, 101)",MALLOWS-RELPHI-R,Copeland,50,0.02
+30,"(100, 101)",MALLOWS-RELPHI-R,GETCHA,50,0.16
+30,"(100, 101)",MALLOWS-RELPHI-R,Uncovered Set,50,0.16
+30,"(500, 501)",MALLOWS-RELPHI-R,Split Cycle,50,0.1
+30,"(500, 501)",MALLOWS-RELPHI-R,Beat Path,50,0.06
+30,"(500, 501)",MALLOWS-RELPHI-R,Copeland,50,0.1
+30,"(500, 501)",MALLOWS-RELPHI-R,GETCHA,50,0.12
+30,"(500, 501)",MALLOWS-RELPHI-R,Uncovered Set,50,0.12
+30,"(1000, 1001)",MALLOWS-RELPHI-R,Split Cycle,50,0.0
+30,"(1000, 1001)",MALLOWS-RELPHI-R,Beat Path,50,0.0
+30,"(1000, 1001)",MALLOWS-RELPHI-R,Copeland,50,0.06
+30,"(1000, 1001)",MALLOWS-RELPHI-R,GETCHA,50,0.08
+30,"(1000, 1001)",MALLOWS-RELPHI-R,Uncovered Set,50,0.08
+30,"(5000, 5001)",MALLOWS-RELPHI-R,Split Cycle,50,0.02
+30,"(5000, 5001)",MALLOWS-RELPHI-R,Beat Path,50,0.0
+30,"(5000, 5001)",MALLOWS-RELPHI-R,Copeland,50,0.02
+30,"(5000, 5001)",MALLOWS-RELPHI-R,GETCHA,50,0.02
+30,"(5000, 5001)",MALLOWS-RELPHI-R,Uncovered Set,50,0.02
+5,"(4, 5)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.4
+5,"(4, 5)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.4
+5,"(4, 5)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.18
+5,"(4, 5)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.42
+5,"(4, 5)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.42
+5,"(10, 11)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.26
+5,"(10, 11)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.26
+5,"(10, 11)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.12
+5,"(10, 11)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.34
+5,"(10, 11)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.34
+5,"(20, 21)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.2
+5,"(20, 21)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.16
+5,"(20, 21)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.18
+5,"(20, 21)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.28
+5,"(20, 21)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.28
+5,"(50, 51)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.08
+5,"(50, 51)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.08
+5,"(50, 51)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.16
+5,"(50, 51)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.28
+5,"(50, 51)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.28
+5,"(100, 101)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.08
+5,"(100, 101)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.04
+5,"(100, 101)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.16
+5,"(100, 101)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.28
+5,"(100, 101)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.28
+5,"(500, 501)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.1
+5,"(500, 501)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.06
+5,"(500, 501)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.2
+5,"(500, 501)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.22
+5,"(500, 501)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.22
+5,"(1000, 1001)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.06
+5,"(1000, 1001)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.02
+5,"(1000, 1001)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.18
+5,"(1000, 1001)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.22
+5,"(1000, 1001)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.22
+5,"(5000, 5001)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.02
+5,"(5000, 5001)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.0
+5,"(5000, 5001)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.1
+5,"(5000, 5001)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.12
+5,"(5000, 5001)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.12
+7,"(4, 5)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.4
+7,"(4, 5)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.4
+7,"(4, 5)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.18
+7,"(4, 5)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.48
+7,"(4, 5)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.48
+7,"(10, 11)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.36
+7,"(10, 11)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.32
+7,"(10, 11)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.14
+7,"(10, 11)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.44
+7,"(10, 11)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.44
+7,"(20, 21)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.22
+7,"(20, 21)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.18
+7,"(20, 21)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.14
+7,"(20, 21)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.34
+7,"(20, 21)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.34
+7,"(50, 51)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.26
+7,"(50, 51)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.2
+7,"(50, 51)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.12
+7,"(50, 51)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.4
+7,"(50, 51)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.4
+7,"(100, 101)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.26
+7,"(100, 101)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.2
+7,"(100, 101)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.24
+7,"(100, 101)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.5
+7,"(100, 101)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.5
+7,"(500, 501)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.12
+7,"(500, 501)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.08
+7,"(500, 501)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.18
+7,"(500, 501)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.3
+7,"(500, 501)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.3
+7,"(1000, 1001)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.12
+7,"(1000, 1001)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.06
+7,"(1000, 1001)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.24
+7,"(1000, 1001)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.36
+7,"(1000, 1001)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.36
+7,"(5000, 5001)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.06
+7,"(5000, 5001)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.0
+7,"(5000, 5001)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.18
+7,"(5000, 5001)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.26
+7,"(5000, 5001)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.26
+10,"(4, 5)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.5
+10,"(4, 5)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.5
+10,"(4, 5)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.16
+10,"(4, 5)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.56
+10,"(4, 5)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.56
+10,"(10, 11)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.42
+10,"(10, 11)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.38
+10,"(10, 11)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.24
+10,"(10, 11)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.58
+10,"(10, 11)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.58
+10,"(20, 21)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.38
+10,"(20, 21)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.3
+10,"(20, 21)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.14
+10,"(20, 21)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.52
+10,"(20, 21)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.52
+10,"(50, 51)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.24
+10,"(50, 51)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.18
+10,"(50, 51)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.14
+10,"(50, 51)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.4
+10,"(50, 51)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.4
+10,"(100, 101)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.32
+10,"(100, 101)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.18
+10,"(100, 101)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.18
+10,"(100, 101)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.5
+10,"(100, 101)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.5
+10,"(500, 501)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.16
+10,"(500, 501)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.08
+10,"(500, 501)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.18
+10,"(500, 501)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.38
+10,"(500, 501)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.38
+10,"(1000, 1001)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.16
+10,"(1000, 1001)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.08
+10,"(1000, 1001)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.18
+10,"(1000, 1001)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.38
+10,"(1000, 1001)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.38
+10,"(5000, 5001)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.02
+10,"(5000, 5001)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.0
+10,"(5000, 5001)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.08
+10,"(5000, 5001)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.24
+10,"(5000, 5001)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.24
+20,"(4, 5)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.64
+20,"(4, 5)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.58
+20,"(4, 5)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.16
+20,"(4, 5)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.7
+20,"(4, 5)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.7
+20,"(10, 11)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.58
+20,"(10, 11)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.46
+20,"(10, 11)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.1
+20,"(10, 11)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.6
+20,"(10, 11)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.6
+20,"(20, 21)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.54
+20,"(20, 21)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.4
+20,"(20, 21)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.2
+20,"(20, 21)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.7
+20,"(20, 21)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.7
+20,"(50, 51)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.44
+20,"(50, 51)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.36
+20,"(50, 51)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.18
+20,"(50, 51)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.62
+20,"(50, 51)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.62
+20,"(100, 101)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.42
+20,"(100, 101)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.2
+20,"(100, 101)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.16
+20,"(100, 101)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.7
+20,"(100, 101)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.7
+20,"(500, 501)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.28
+20,"(500, 501)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.12
+20,"(500, 501)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.18
+20,"(500, 501)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.6
+20,"(500, 501)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.6
+20,"(1000, 1001)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.24
+20,"(1000, 1001)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.1
+20,"(1000, 1001)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.24
+20,"(1000, 1001)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.54
+20,"(1000, 1001)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.54
+20,"(5000, 5001)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.26
+20,"(5000, 5001)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.02
+20,"(5000, 5001)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.24
+20,"(5000, 5001)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.58
+20,"(5000, 5001)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.58
+30,"(4, 5)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.6
+30,"(4, 5)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.58
+30,"(4, 5)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.16
+30,"(4, 5)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.64
+30,"(4, 5)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.64
+30,"(10, 11)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.74
+30,"(10, 11)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.58
+30,"(10, 11)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.2
+30,"(10, 11)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.8
+30,"(10, 11)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.8
+30,"(20, 21)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.72
+30,"(20, 21)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.46
+30,"(20, 21)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.2
+30,"(20, 21)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.76
+30,"(20, 21)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.76
+30,"(50, 51)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.56
+30,"(50, 51)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.36
+30,"(50, 51)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.12
+30,"(50, 51)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.7
+30,"(50, 51)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.7
+30,"(100, 101)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.66
+30,"(100, 101)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.34
+30,"(100, 101)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.26
+30,"(100, 101)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.88
+30,"(100, 101)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.88
+30,"(500, 501)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.3
+30,"(500, 501)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.1
+30,"(500, 501)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.2
+30,"(500, 501)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.64
+30,"(500, 501)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.64
+30,"(1000, 1001)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.36
+30,"(1000, 1001)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.1
+30,"(1000, 1001)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.22
+30,"(1000, 1001)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.66
+30,"(1000, 1001)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.66
+30,"(5000, 5001)",MALLOWS_2REF-RELPHI-R,Split Cycle,50,0.44
+30,"(5000, 5001)",MALLOWS_2REF-RELPHI-R,Beat Path,50,0.0
+30,"(5000, 5001)",MALLOWS_2REF-RELPHI-R,Copeland,50,0.14
+30,"(5000, 5001)",MALLOWS_2REF-RELPHI-R,GETCHA,50,0.7
+30,"(5000, 5001)",MALLOWS_2REF-RELPHI-R,Uncovered Set,50,0.7
