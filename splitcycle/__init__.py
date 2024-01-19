@@ -10,4 +10,7 @@ __version__ = '1.0.0'
 
 import numpy as np
 
-from core import *
+from .core import *
+
+def elect(margins, candidates=None):
+    splitcycle(margins, candidates)
