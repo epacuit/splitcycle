@@ -147,6 +147,24 @@ def splitcycle(margins, candidates=None):
     return sorted(winners)
 
 
+def augment(ballot, n_candidates):
+    '''
+    Given a list of candidate indices (from 0 to `n_candidates`) in rank
+    order (higher ranked candidates first), augment it to include
+    unranked candidates, which are placed at the end of the ballot
+    '''
+    included = []
+
+    # find all ranked candidates
+    for rank in ballot:
+        included.extend(rank)
+
+    # add unranked candidates
+    ballot.append([i for i in range(n_candidates) if i not in included])
+
+    return included
+
+
 def margins_from_ballots(ballots, n_candidates):
     '''
     Turn a set of ballots (as described in `elect`) into a voting
@@ -157,6 +175,9 @@ def margins_from_ballots(ballots, n_candidates):
     margins = np.zeros((n_candidates, n_candidates))
 
     for ballot in ballots:
+        # extend ballot to include unranked candidates
+        ballot = augment(ballot, n_candidates)
+
         # update all margins for this ballot
         for first, last in combinations(ballot, 2):
             for i in first:
