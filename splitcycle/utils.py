@@ -9,6 +9,7 @@ import numpy as np
 from .core import margins_from_ballots
 from .errors import not_enough_candidates
 
+
 def augment(ballots):
     '''
     Given a list of `ballots` (as described in `elect`, but with all
@@ -113,3 +114,13 @@ def gen_random_ballots(n_ballots, n_candidates, ties=True):
             )
 
     return ballots
+
+
+def expected_utility(p, r, c, y, t):
+    '''See (Masciandaro 2007)'''
+    return (1 - p) * (1 + r - c) * y - p * (t * y ** 2 + c * y)
+
+
+def optimize(p, r, c, t):
+    '''See (Masciandaro 2007)'''
+    return ((1 + r) * (1 - p) - c) / (2 * p * t)
