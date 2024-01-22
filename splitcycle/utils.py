@@ -45,7 +45,7 @@ def info(ballots, candidates, verbose=True):
     n_candidates = len(candidates)
     n_ballots = ballots.shape[0]
     margins = margins_from_ballots(ballots)
-    
+
     # pick an example ballot at random
     ex_ballot = ballots[randint(0, n_ballots - 1)]
 
