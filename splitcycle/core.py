@@ -1,6 +1,7 @@
 '''Core utilities for SplitCycle package'''
 
 import numpy as np
+from .errors import not_enough_candidates
 
 
 def is_square(matrix):
@@ -204,11 +205,7 @@ def elect(ballots, candidates):
     Returns a sorted list of all SplitCycle winners
     '''
     if ballots.shape[1] != len(candidates):
-        raise ValueError(
-            'Number of candidates in `ballots` does not match number of '
-            'candidates in `candidates` (i.e. some ranked candidates '
-            'could not be matched with names from provided data)'
-        )
+        not_enough_candidates()
 
     margins = margins_from_ballots(ballots)
     winner_indices = splitcycle(margins)

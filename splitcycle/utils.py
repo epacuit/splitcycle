@@ -7,6 +7,7 @@ from random import randint
 from tabulate import tabulate
 import numpy as np
 from .core import margins_from_ballots
+from .errors import not_enough_candidates
 
 def augment(ballots):
     '''
@@ -37,11 +38,7 @@ def info(ballots, candidates, verbose=True):
     with `verbose=False`.
     '''
     if ballots.shape[1] != len(candidates):
-        raise ValueError(
-            'Number of candidates in `ballots` does not match number of '
-            'candidates in `candidates` (i.e. some ranked candidates '
-            'could not be matched with names from provided data)'
-        )
+        not_enough_candidates()
 
     n_candidates = len(candidates)
     n_ballots = ballots.shape[0]
