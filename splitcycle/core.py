@@ -116,7 +116,7 @@ def splitcycle(margins, candidates=None):
     n = margins.shape[0]  # `margins` is square
 
     # consider all candidates when first called
-    candidates = np.arange(n) if candidates is None else candidates
+    candidates = range(n) if candidates is None else candidates
 
     winners = set(candidates)
     for a in candidates:
@@ -204,9 +204,11 @@ def elect(ballots, candidates):
 
     Returns a sorted list of all SplitCycle winners
     '''
+    # check that all candidates are represented in `ballots`
     if ballots.shape[1] != len(candidates):
         not_enough_candidates()
 
+    # run `splitcycle`
     margins = margins_from_ballots(ballots)
     winner_indices = splitcycle(margins)
 

@@ -38,26 +38,33 @@ def info(ballots, candidates, verbose=True):
     to ensure all data was processed correctly. Turn off print output
     with `verbose=False`.
     '''
+    # check that all candidates are represented in `ballots`
     if ballots.shape[1] != len(candidates):
         not_enough_candidates()
 
     n_candidates = len(candidates)
     n_ballots = ballots.shape[0]
     margins = margins_from_ballots(ballots)
+    
+    # pick an example ballot at random
     ex_ballot = ballots[randint(0, n_ballots - 1)]
 
     if verbose:
+        # print data if verbose mode is enabled
         print(f'There are {n_candidates} candidates in this election.')
         print(f'There are {n_ballots} ballots ranking these candidates:')
         print(', '.join(candidates))
         print('The associated margins graph for this election is below:')
         print('Left candidate vs top candidate')
+
+        # pretty print margins matrix with labels
         margins_str = [[str(cell) for cell in row] for row in margins]
         labeled_margins = [
             [candidates[i]] + row for i, row in enumerate(margins_str)
         ]
         row_labels = [''] + candidates
         print(tabulate(labeled_margins, headers=row_labels, tablefmt='pretty'))
+
         print('Here is an example ballot:')
         # rank candidate names according to ranks in ballot
         ranked_candidates = [
