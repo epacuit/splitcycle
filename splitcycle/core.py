@@ -1,6 +1,5 @@
 '''Core utilities for SplitCycle package'''
 
-from itertools import combinations
 import numpy as np
 
 
@@ -49,7 +48,7 @@ def has_strong_path(matrix, source, target, k):
         '''
         Breadth-first search implementation:
         Search starting from `nodes` in `matrix` until a path to
-        `target` is found or until all nodes are searched. Since
+        `target` is found or until all nodes are searched. Since 
         Condorcet cycles are exceedingly rare in real elections and
         typically do not involve many candidates[1], a breadth-first
         search of the margins graph will be fastest to detect such a
@@ -147,42 +146,29 @@ def splitcycle(margins, candidates=None):
     return sorted(winners)
 
 
-def augment(ballot, n_candidates):
-    '''
-    Given a list of candidate indices (from 0 to `n_candidates`) in rank
-    order (higher ranked candidates first), augment it to include
-    unranked candidates, which are placed at the end of the ballot
-    '''
-    included = []
-
-    # find all ranked candidates
-    for rank in ballot:
-        included.extend(rank)
-
-    # add unranked candidates
-    ballot.append([i for i in range(n_candidates) if i not in included])
-
-    return included
-
-
-def margins_from_ballots(ballots, n_candidates):
+def margins_from_ballots(ballots):
     '''
     Turn a set of ballots (as described in `elect`) into a voting
-    margins matrix (as described in `splitcycle`) given the number of
-    candidates `n_candidates`
+    margins matrix (as described in `splitcycle`)
     '''
     # generate initial margins matrix
+    n_candidates = ballots.shape[1]
     margins = np.zeros((n_candidates, n_candidates))
 
     for ballot in ballots:
-        # extend ballot to include unranked candidates
-        ballot = augment(ballot, n_candidates)
-
         # update all margins for this ballot
-        for first, last in combinations(ballot, 2):
-            for i in first:
-                for j in last:
+        for i in range(n_candidates):
+            for j in range(n_candidates):
+                if i == j:
+                    # margins already has zero diagonal
+                    continue
+
+                # handle ranking possibilities except ties (do nothing)
+                if ballot[i] < ballot[j]:
+                    # i beats j
                     margins[i, j] += 1
+                elif ballot[i] > ballot[j]:
+                    # i loses to j
                     margins[i, j] -= 1
 
     return margins
@@ -194,20 +180,22 @@ def elect(ballots, candidates):
     `candidates`
 
     `ballots`:
-        a list of ballots, where each ballot is a list of indices in
-        rank order (higher ranked candidates first). Indices correspond
-        to candidates. Each item of the ballot list is itself a list,
-        though most lists will contain only 1 item (the candidate
-        index). If two or more candidates are tied for the same rank,
-        they should be included in that rank's list. If candidates are
-        unranked, they should not be included in the ballot.
+        a list of ballots, where each ballot is a list of candidate
+        ranks; lower ranks indicate more preferred candidates (i.e. if
+        candidate A has rank a and candidate B has rank b, A is
+        preferred to B if a < b, A and B are tied if a = b, and B is
+        preferred to A if a > b). All candidates (including unranked
+        candidates) should have a rank (unranked candidates should all
+        have an equal rank greater than the rank of the least preferred
+        ranked candidate)
 
         Example:
-        >>> ballots = [
-        ...     [[1], [2], [3], [4]],
-        ...     [[2, 3], [4], [1]],
-        ...     [[1, 2, 3]],
-        ... ]
+        >>> ballots = np.array([
+        ...     # candidates are A, B, C, D
+        ...     [1, 2, 3, 4],  # candidates ranked in sequential order
+        ...     [3, 1, 1, 2],  # candidates B and C tied for first place 
+        ...     [1, 1, 1, 2],  # candidates A, B, and C tied, D unranked
+        ... ])
 
     `candidates`:
         a list of candidate names, where the index of each name
@@ -215,7 +203,14 @@ def elect(ballots, candidates):
 
     Returns a sorted list of all SplitCycle winners
     '''
-    margins = margins_from_ballots(ballots, len(candidates))
+    if ballots.shape[1] != len(candidates):
+        raise ValueError(
+            'Number of candidates in `ballots` does not match number of '
+            'candidates in `candidates` (i.e. some ranked candidates '
+            'could not be matched with names from provided data)'
+        )
+
+    margins = margins_from_ballots(ballots)
     winner_indices = splitcycle(margins)
 
     # map winner indices to candidate names

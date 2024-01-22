@@ -19,7 +19,7 @@ almost instantly.
 ---
 
 Adaptation as a Python package
-Open source contributions by Ananth Venkatesh and Youwen Wu
+Open source contributions by Ananth Venkatesh
 
 <https://github.com/WesHolliday/splitcycle>
 '''
