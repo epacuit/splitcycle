@@ -21,7 +21,7 @@ almost instantly.
 Adaptation as a Python package
 Open source contributions by Ananth Venkatesh
 
-<https://github.com/WesHolliday/splitcycle>
+<https://github.com/epacuit/splitcycle>
 '''
 
 __version__ = '1.0.0'
