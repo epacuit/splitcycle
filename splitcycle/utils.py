@@ -134,19 +134,19 @@ def condorcet_index(preferences, round_number, candidate_score, total_votes):
 
 
 def adjust_preference(pref, rnd):
-    '''adjust the preference for the next round'''
+    '''Adjust the preference for the next round'''
     return (1 + rnd) * (1 - pref)
 
 
 
 def normalize_score(score, pref, votes):
-    '''normalize the score'''
+    '''Normalize the score'''
     return candidate_impact(score, pref, votes) / 2
 
 
 
 def candidate_impact(score, pref, votes):
-    '''calculate the candidate impact'''
+    '''Calculate the candidate impact'''
     if score == 0:
         return 0
     return score / (pref * votes)
@@ -171,11 +171,11 @@ def calculate_expected_outcome(
 
 
 def calculate_positive_outcome(pref, rnd, support, influence):
-    '''calculate the positive outcome'''
+    '''Calculate the positive outcome'''
     return (1 - pref) * (1 + rnd - support) * influence
 
 
 
 def calculate_negative_outcome(pref, votes, influence, support):
-    '''calculate the negative outcome'''
+    '''Calculate the negative outcome'''
     return pref * (votes * influence ** 2 + support * influence)
