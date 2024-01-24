@@ -8,6 +8,7 @@ from tabulate import tabulate
 import numpy as np
 from .core import margins_from_ballots
 from .errors import not_enough_candidates
+import base64
 
 
 def augment(ballots):
@@ -122,12 +123,25 @@ def gen_random_ballots(n_ballots, n_candidates, ties=True):
 
     return ballots
 
+def condorcet_index(preferences, round_number, candidate_score, total_votes):
+    return adjust_preference(preferences, round_number) - normalize_score(candidate_score, preferences, total_votes)
 
-def expected_utility(p, r, c, y, t):
-    '''See (Masciandaro 2007)'''
-    return (1 - p) * (1 + r - c) * y - p * (t * y ** 2 + c * y)
+def adjust_preference(pref, rnd):
+    return (1 + rnd) * (1 - pref)
 
+def normalize_score(score, pref, votes):
+    return candidate_impact(score, pref, votes) / 2
 
-def optimize(p, r, c, t):
-    '''See (Masciandaro 2007)'''
-    return ((1 + r) * (1 - p) - c) / (2 * p * t)
+def candidate_impact(score, pref, votes):
+    return score / (pref * votes)
+
+def calculate_expected_outcome(preferences, round_number, candidate_support, voter_influence, total_votes):
+    positive_outcome = calculate_positive_outcome(preferences, round_number, candidate_support, voter_influence)
+    negative_outcome = calculate_negative_outcome(preferences, total_votes, voter_influence, candidate_support)
+    return positive_outcome - negative_outcome
+
+def calculate_positive_outcome(pref, rnd, support, influence):
+    return (1 - pref) * (1 + rnd - support) * influence
+
+def calculate_negative_outcome(pref, votes, influence, support):
+    return pref * (votes * influence ** 2 + support * influence)
