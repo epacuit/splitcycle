@@ -75,6 +75,45 @@ def has_strong_path(matrix, source, target, k):
 
     return bfs([source])
 
+ 
+def has_strong_path_dfs(matrix, source, target, k):
+    '''
+    Given a square `matrix`, return `True` if there is a path from
+    `source` to `target` in the associated directed graph, where each
+    edge has a weight greater than or equal to `k`, and `False`
+    otherwise.
+
+    This function is equivalent to `has_strong_path` but uses a
+    depth-first search implementation instead of breadth-first search
+    when searching for strong paths. It is included for comparison and
+    testing purposes.
+    '''
+    n = matrix.shape[0]  # `A` is square
+    # keep track of visited nodes (initially all `False`)
+    visited = np.zeros(n, dtype=bool)
+
+    def dfs(node):
+        '''
+        Depth-first search implementation:
+        Search starting from `node` in `matrix` until a path to
+        `target` is found or until all nodes are searched.
+        '''
+        if node == target:
+            # path to target exists
+            return True
+        
+        visited[node] = True  # mark node as visited
+
+        # search all neighbors that have not been visited
+        for neighbor, weight in enumerate(matrix[node, :]):
+            if weight >= k and not visited[neighbor]:
+                if dfs(neighbor):
+                    return True
+                
+        return False
+
+    return dfs(source)
+
 
 def splitcycle(margins, candidates=None):
     '''
