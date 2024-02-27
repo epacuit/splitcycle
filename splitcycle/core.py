@@ -115,7 +115,7 @@ def has_strong_path_dfs(matrix, source, target, k):
     return dfs(source)
 
 
-def splitcycle(margins, candidates=None):
+def splitcycle(margins, candidates=None, dfs=False):
     '''
     If x has a positive margin over y and there is no path from y back
     to x of strength at least the margin of x over y, then x defeats y.
@@ -126,6 +126,13 @@ def splitcycle(margins, candidates=None):
         (negative) between candidates on its first axis and their
         opponents on the second; should be symmetric over the diagonal
         (which should be zero, as candidates cannot defeat themselves)
+
+    `candidates=None`:
+        if `None`, use the candidates in `margins` 
+    
+    `dfs=False`:
+        if `True`, use depth-first search instead of default
+        breadth-first search implementation
 
     Returns a sorted list of all SplitCycle winners
     '''
@@ -154,6 +161,9 @@ def splitcycle(margins, candidates=None):
 
     n = margins.shape[0]  # `margins` is square
 
+    # initialize pathfinding algorithm
+    pathfinder = has_strong_path_dfs if dfs else has_strong_path
+
     # consider all candidates when first called
     candidates = range(n) if candidates is None else candidates
 
@@ -179,7 +189,7 @@ def splitcycle(margins, candidates=None):
             # >>>   (margins[a, b] < 0) and not \
             # ...       has_strong_path(margins, a, b, -margins[a, b])
             if (margins[a, b] < 0) and not \
-                    has_strong_path(margins, a, b, -margins[a, b]):
+                    pathfinder(margins, a, b, -margins[a, b]):
                 winners.discard(a)
                 break
 
@@ -214,7 +224,7 @@ def margins_from_ballots(ballots):
     return margins
 
 
-def elect(ballots, candidates):
+def elect(ballots, candidates, dfs=False):
     '''
     Determine the SplitCycle winners given a set of `ballots` and
     `candidates`
@@ -241,6 +251,10 @@ def elect(ballots, candidates):
         a list of candidate names, where the index of each name
         corresponds to the index of the candidate in each ballot
 
+    `dfs=False`:
+        if `True`, use depth-first search to determine the SplitCycle
+        winners; if `False`, use breadth-first search
+
     Returns a sorted list of all SplitCycle winners
     '''
     # check that all candidates are represented in `ballots`
@@ -249,7 +263,7 @@ def elect(ballots, candidates):
 
     # run `splitcycle`
     margins = margins_from_ballots(ballots)
-    winner_indices = splitcycle(margins)
+    winner_indices = splitcycle(margins, dfs=dfs)
 
     # map winner indices to candidate names
     return [candidates[i] for i in winner_indices]
