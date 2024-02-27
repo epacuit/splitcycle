@@ -123,7 +123,7 @@ def gen_random_ballots(n_ballots, n_candidates, model='ic-ties'):
     if base_model == 'euclidean':
         n = int(model.split('-')[1])
         return euclidean(n_ballots, n_candidates, n)
-    
+
     raise ValueError(
         f'The specified voter preferences model `{model}` does not '
         r'exist! Options are: `ic`, `ic-ties`, and `euclidean-{n}`.'
