@@ -5,9 +5,9 @@ SplitCycle package
 
 from random import randint
 from tabulate import tabulate
-import numpy as np
 from .core import margins_from_ballots
 from .errors import not_enough_candidates
+from .models import *
 
 
 def augment(ballots):
@@ -84,13 +84,9 @@ def info(ballots, candidates, verbose=True):
     }
 
 
-def gen_random_ballots(n_ballots, n_candidates, ties=True):
+def gen_random_ballots(n_ballots, n_candidates, model='ic-ties'):
     '''
-    Generate a random set of ballots for testing purposes*
-
-    *Note that this does NOT accurately represent voting in real
-    elections, and should only be used for testing modules in the
-    SplitCycle package
+    Generate a random set of ballots for testing purposes
 
     `n_ballots`:
         the number of ballots in the election
@@ -98,29 +94,41 @@ def gen_random_ballots(n_ballots, n_candidates, ties=True):
     `n_candidates`:
         the number of candidates in the election
     
-    `ties=True`:
-        whether or not to allow ties between candidates (if ties are not
-        allowed, this may slow down generation)
+    `model='ic-ties'`:
+        the voter preferences model to use, defaults to a variant of the
+        impartial culture model with ties; options are listed below:
+
+        - `ic`: impartial culture
+            - each voter's preferences are randomly determined
+        - `ic-ties`: impartial culture with ties
+            - each voter's preferences are randomly determined, but with
+              the potential for ties
+        - `euclidean-{n}`: euclidean (spatial) model with `n` dimensions
+            - each voter is represented as a point chosen at random from
+              a uniform distribution over a section of an `n`
+              dimensional space; candidates are assigned to random
+              points in this space and voter preferences are determined
+              based on the ranking of the distance from their location
+              to each candidate's location (shorter distances
+              correspond to greater preference)
 
     Return a numpy array of shape (n_ballots, n_candidates) that
     represents a preprocessed list of ballots with ranks 1 to
     `n_candidates` (can be used with `elect`)
     '''
-    # generate random ballots
-    ballots = np.zeros((n_ballots, n_candidates))
-    for i in range(n_ballots):
-        if ties:
-            ballots[i] = np.array(
-                [randint(1, n_candidates) for _ in range(n_candidates)]
-            )
-        else:
-            # generate `n_candidates` unique random integers
-            # from 1 to `n_candidates`
-            ballots[i] = 1 + np.random.choice(
-                n_candidates, n_candidates, replace=False
-            )
-
-    return ballots
+    base_model = model.split('-')[0]
+    if base_model == 'ic':
+        ties = 'ties' in model
+        return ic(n_ballots, n_candidates, ties)
+    elif base_model == 'euclidean':
+        n = int(model.split('-')[1])
+        return euclidean(n_ballots, n_candidates, n)
+    else:
+        raise ValueError(
+            f'The specified voter preferences model `{model}` does not '
+            'exist! Options are: `ic`, `ic-ties`, and '
+            '`euclidean-\{n\}`.'
+        )
 
 
 def condorcet_index(preferences, round_number, candidate_score, total_votes):
