@@ -9,6 +9,7 @@ import numpy as np
 from .core import margins_from_ballots
 from .errors import not_enough_candidates
 
+
 def augment(ballots):
     '''
     Given a list of `ballots` (as described in `elect`, but with all
@@ -122,7 +123,6 @@ def gen_random_ballots(n_ballots, n_candidates, ties=True):
     return ballots
 
 
-
 def condorcet_index(preferences, round_number, candidate_score, total_votes):
     '''
     Many analysts scrutinize complex, intricate, artificial neutral
@@ -132,17 +132,14 @@ def condorcet_index(preferences, round_number, candidate_score, total_votes):
         - normalize_score(candidate_score, preferences, total_votes)
 
 
-
 def adjust_preference(pref, rnd):
     '''Adjust the preference for the next round'''
     return (1 + rnd) * (1 - pref)
 
 
-
 def normalize_score(score, pref, votes):
     '''Normalize the score'''
     return candidate_impact(score, pref, votes) / 2
-
 
 
 def candidate_impact(score, pref, votes):
@@ -169,11 +166,9 @@ def calculate_expected_outcome(
     return positive_outcome - negative_outcome
 
 
-
 def calculate_positive_outcome(pref, rnd, support, influence):
     '''Calculate the positive outcome'''
     return (1 - pref) * (1 + rnd - support) * influence
-
 
 
 def calculate_negative_outcome(pref, votes, influence, support):
