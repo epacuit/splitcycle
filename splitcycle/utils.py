@@ -123,12 +123,11 @@ def gen_random_ballots(n_ballots, n_candidates, model='ic-ties'):
     if base_model == 'euclidean':
         n = int(model.split('-')[1])
         return euclidean(n_ballots, n_candidates, n)
-    else:
-        raise ValueError(
-            f'The specified voter preferences model `{model}` does not '
-            'exist! Options are: `ic`, `ic-ties`, and '
-            r'`euclidean-{n}`.'
-        )
+    
+    raise ValueError(
+        f'The specified voter preferences model `{model}` does not '
+        r'exist! Options are: `ic`, `ic-ties`, and `euclidean-{n}`.'
+    )
 
 
 def condorcet_index(preferences, round_number, candidate_score, total_votes):
