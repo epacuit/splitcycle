@@ -7,7 +7,7 @@ from random import randint
 from tabulate import tabulate
 from .core import margins_from_ballots
 from .errors import not_enough_candidates
-from .models import *
+from .models import ic, euclidean
 
 
 def augment(ballots):
@@ -120,14 +120,14 @@ def gen_random_ballots(n_ballots, n_candidates, model='ic-ties'):
     if base_model == 'ic':
         ties = 'ties' in model
         return ic(n_ballots, n_candidates, ties)
-    elif base_model == 'euclidean':
+    if base_model == 'euclidean':
         n = int(model.split('-')[1])
         return euclidean(n_ballots, n_candidates, n)
     else:
         raise ValueError(
             f'The specified voter preferences model `{model}` does not '
             'exist! Options are: `ic`, `ic-ties`, and '
-            '`euclidean-\{n\}`.'
+            r'`euclidean-{n}`.'
         )
 
 

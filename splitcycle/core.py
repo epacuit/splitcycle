@@ -75,7 +75,7 @@ def has_strong_path(matrix, source, target, k):
 
     return bfs([source])
 
- 
+
 def has_strong_path_dfs(matrix, source, target, k):
     '''
     Given a square `matrix`, return `True` if there is a path from
@@ -101,7 +101,7 @@ def has_strong_path_dfs(matrix, source, target, k):
         if node == target:
             # path to target exists
             return True
-        
+
         visited[node] = True  # mark node as visited
 
         # search all neighbors that have not been visited
@@ -109,7 +109,7 @@ def has_strong_path_dfs(matrix, source, target, k):
             if weight >= k and not visited[neighbor]:
                 if dfs(neighbor):
                     return True
-                
+
         return False
 
     return dfs(source)

@@ -1,3 +1,5 @@
+'''Speed test for comparing DFS and BFS performance'''
+
 import time
 import splitcycle
 
@@ -18,8 +20,8 @@ for i in range(N_TRIALS):
         N_BALLOTS, N_CANDIDATES, model=f'euclidean-{N_DIM}'
     ))
 
-sum_times_dfs = 0
-count = 0
+SUM_TIMES_DFS = 0
+COUNT = 0
 
 # dfs
 for i in range(N_TRIALS):
@@ -28,10 +30,10 @@ for i in range(N_TRIALS):
     end = time.time()
     if ONLY_MULTIPLE and len(winners) == 1:
         continue
-    sum_times_dfs += end - start
-    count += 1
+    SUM_TIMES_DFS += end - start
+    COUNT += 1
 
-sum_times_bfs = 0
+SUM_TIMES_BFS = 0
 
 # bfs
 for i in range(N_TRIALS):
@@ -40,13 +42,13 @@ for i in range(N_TRIALS):
     end = time.time()
     if ONLY_MULTIPLE and len(winners) == 1:
         continue
-    sum_times_bfs += end - start
-    count += 1
+    SUM_TIMES_BFS += end - start
+    COUNT += 1
 
-print(f'DFS avg time: {1000 * sum_times_dfs / count} ms')
-print(f'BFS avg time: {1000 * sum_times_bfs / count} ms')
+print(f'DFS avg time: {1000 * SUM_TIMES_DFS / COUNT} ms')
+print(f'BFS avg time: {1000 * SUM_TIMES_BFS / COUNT} ms')
 
-if sum_times_bfs < sum_times_dfs:
+if SUM_TIMES_BFS < SUM_TIMES_DFS:
     print('BFS is faster')
 else:
     print('DFS is faster')
