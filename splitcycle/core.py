@@ -1,6 +1,8 @@
 '''Core utilities for SplitCycle package'''
 
+import os
 import numpy as np
+from multiprocessing import Pool
 from .errors import not_enough_candidates
 
 
@@ -33,89 +35,133 @@ def is_margin_like(matrix):
     return has_reverse_diagonal_symmetry(matrix) and has_zero_diagonal(matrix)
 
 
-def has_strong_path(matrix, source, target, k):
+def is_splitcycle_winner(work):
     '''
-    Given a square `matrix`, return `True` if there is a path from
-    `source` to `target` in the associated directed graph, where each
-    edge has a weight greater than or equal to `k`, and `False`
-    otherwise.
+    Determine which candidates satisfy the criteria to be considered
+    SplitCycle winners
+    
+    `work`:
+        tuple with:
+        (all_candidates, dfs, considered_candidates, margins) 
+
+    Returns a pruned list of identified winners
     '''
-    n = matrix.shape[0]  # `A` is square
-    # keep track of visited nodes (initially all `False`)
-    visited = np.zeros(n, dtype=bool)
-    visited[source] = True  # do not revisit the `source` node
-
-    def bfs(nodes):
+    def has_strong_path(matrix, source, target, k):
         '''
-        Breadth-first search implementation:
-        Search starting from `nodes` in `matrix` until a path to
-        `target` is found or until all nodes are searched. Since 
-        Condorcet cycles are exceedingly rare in real elections and
-        typically do not involve many candidates[1], a breadth-first
-        search of the margins graph will be fastest to detect such a
-        cycle.
-
-        [1] (Gehrlein and Lepelley, "Voting Paradoxes and Group
-            Coherence")
+        Given a square `matrix`, return `True` if there is a path from
+        `source` to `target` in the associated directed graph, where
+        each edge has a weight greater than or equal to `k`, and `False`
+        otherwise.
         '''
-        queue = []  # nodes to search next cycle
+        n = matrix.shape[0]  # `A` is square
+        # keep track of visited nodes (initially all `False`)
+        visited = np.zeros(n, dtype=bool)
+        visited[source] = True  # do not revisit the `source` node
 
-        for node in nodes:
-            # check for a direct path from `node` to `target`
-            if matrix[node, target] >= k:
-                return True
+        def bfs(nodes):
+            '''
+            Breadth-first search implementation:
+            Search starting from `nodes` in `matrix` until a path to
+            `target` is found or until all nodes are searched. Since 
+            Condorcet cycles are exceedingly rare in real elections and
+            typically do not involve many candidates[1], a breadth-first
+            search of the margins graph will be fastest to detect such a
+            cycle.
 
-            # queue neighbors to check for a path to `target`
-            visited[node] = True
-            for neighbor, weight in enumerate(matrix[node, :]):
-                if weight >= k and not visited[neighbor]:
-                    queue.append(neighbor)
+            [1] (Gehrlein and Lepelley, "Voting Paradoxes and Group
+                Coherence")
+            '''
+            queue = []  # nodes to search next cycle
 
-        return bfs(queue) if queue else False
-
-    return bfs([source])
-
-
-def has_strong_path_dfs(matrix, source, target, k):
-    '''
-    Given a square `matrix`, return `True` if there is a path from
-    `source` to `target` in the associated directed graph, where each
-    edge has a weight greater than or equal to `k`, and `False`
-    otherwise.
-
-    This function is equivalent to `has_strong_path` but uses a
-    depth-first search implementation instead of breadth-first search
-    when searching for strong paths. It is included for comparison and
-    testing purposes.
-    '''
-    n = matrix.shape[0]  # `A` is square
-    # keep track of visited nodes (initially all `False`)
-    visited = np.zeros(n, dtype=bool)
-
-    def dfs(node):
-        '''
-        Depth-first search implementation:
-        Search starting from `node` in `matrix` until a path to
-        `target` is found or until all nodes are searched.
-        '''
-        if node == target:
-            # path to target exists
-            return True
-
-        visited[node] = True  # mark node as visited
-
-        # search all neighbors that have not been visited
-        for neighbor, weight in enumerate(matrix[node, :]):
-            if weight >= k and not visited[neighbor]:
-                if dfs(neighbor):
+            for node in nodes:
+                # check for a direct path from `node` to `target`
+                if matrix[node, target] >= k:
                     return True
 
-        return False
+                # queue neighbors to check for a path to `target`
+                visited[node] = True
+                for neighbor, weight in enumerate(matrix[node, :]):
+                    if weight >= k and not visited[neighbor]:
+                        queue.append(neighbor)
 
-    return dfs(source)
+            return bfs(queue) if queue else False
+
+        return bfs([source])
+
+    def has_strong_path_dfs(matrix, source, target, k):
+        '''
+        Given a square `matrix`, return `True` if there is a path from
+        `source` to `target` in the associated directed graph, where
+        each edge has a weight greater than or equal to `k`, and `False`
+        otherwise.
+
+        This function is equivalent to `has_strong_path` but uses a
+        depth-first search implementation instead of breadth-first
+        search when searching for strong paths. It is included for
+        comparison and testing purposes.
+        '''
+        n = matrix.shape[0]  # `A` is square
+        # keep track of visited nodes (initially all `False`)
+        visited = np.zeros(n, dtype=bool)
+
+        def dfs(node):
+            '''
+            Depth-first search implementation:
+            Search starting from `node` in `matrix` until a path to
+            `target` is found or until all nodes are searched.
+            '''
+            if node == target:
+                # path to target exists
+                return True
+
+            visited[node] = True  # mark node as visited
+
+            # search all neighbors that have not been visited
+            for neighbor, weight in enumerate(matrix[node, :]):
+                if weight >= k and not visited[neighbor]:
+                    if dfs(neighbor):
+                        return True
+
+            return False
+
+        return dfs(source)
+
+    all_candidates = work[0]
+    dfs = work[1]
+    finder = has_strong_path_dfs if dfs else has_strong_path
+    considered_candidates = work[2]
+    winners = set(considered_candidates)
+    margins = work[3]
+
+    for a in considered_candidates:
+        # `a` is not a Condorcet winner
+        # if it loses to `b`:
+        # >>>   margins[a, b] < 0,
+        # in which case `a` is a SplitCycle winner only
+        # if it is locked into a Condorcet cycle with `b`:
+        # >>>   (margins[a, b] < 0) and \
+        # ...       has_strong_path(margins, a, b, 1)
+        # and
+        # if the path in which `b` defeats `a` is one of the weakest
+        # paths in that cycle:
+        # >>>   has_strong_path(margins, a, b, -margins[a, b])
+        # putting this altogether, we need to remove `a` from the
+        # list of Condorcet winners
+        # if `a` loses to `b` and there is no Condorcet cycle
+        # including `a` and `b` where the path in which `b` defeats
+        # `a` is one of the weakest paths in that cycle:
+        # >>>   (margins[a, b] < 0) and not \
+        # ...       has_strong_path(margins, a, b, -margins[a, b])
+        for b in all_candidates:
+            if (margins[a, b] < 0) and not \
+                finder(margins, a, b, -margins[a, b]):
+                winners.discard(a)
+                break
+
+    return winners
 
 
-def splitcycle(margins, candidates=None, dfs=False):
+def splitcycle(margins, candidates=None, dfs=True):
     '''
     If x has a positive margin over y and there is no path from y back
     to x of strength at least the margin of x over y, then x defeats y.
@@ -130,9 +176,9 @@ def splitcycle(margins, candidates=None, dfs=False):
     `candidates=None`:
         if `None`, use the candidates in `margins` 
     
-    `dfs=False`:
-        if `True`, use depth-first search instead of default
-        breadth-first search implementation
+    `dfs=True`:
+        if `False`, use breadth-first search instead of default
+        depth-first search implementation
 
     Returns a sorted list of all SplitCycle winners
     '''
@@ -161,37 +207,31 @@ def splitcycle(margins, candidates=None, dfs=False):
 
     n = margins.shape[0]  # `margins` is square
 
-    # initialize pathfinding algorithm
-    pathfinder = has_strong_path_dfs if dfs else has_strong_path
-
     # consider all candidates when first called
     candidates = range(n) if candidates is None else candidates
 
-    winners = set(candidates)
-    for a in candidates:
-        for b in candidates:
-            # `a` is not a Condorcet winner
-            # if it loses to `b`:
-            # >>>   margins[a, b] < 0,
-            # in which case `a` is a SplitCycle winner only
-            # if it is locked into a Condorcet cycle with `b`:
-            # >>>   (margins[a, b] < 0) and \
-            # ...       has_strong_path(margins, a, b, 1)
-            # and
-            # if the path in which `b` defeats `a` is one of the weakest
-            # paths in that cycle:
-            # >>>   has_strong_path(margins, a, b, -margins[a, b])
-            # putting this altogether, we need to remove `a` from the
-            # list of Condorcet winners
-            # if `a` loses to `b` and there is no Condorcet cycle
-            # including `a` and `b` where the path in which `b` defeats
-            # `a` is one of the weakest paths in that cycle:
-            # >>>   (margins[a, b] < 0) and not \
-            # ...       has_strong_path(margins, a, b, -margins[a, b])
-            if (margins[a, b] < 0) and not \
-                    pathfinder(margins, a, b, -margins[a, b]):
-                winners.discard(a)
-                break
+    # prepare multithreading pool
+    cores = os.cpu_count()
+    candidates_per_core = n // cores
+    # distribute workload as equally as possible across available cores
+    pool_sizes = [
+        (candidates_per_core + 1) if (i < n % cores) else candidates_per_core
+        for i in range(cores)
+    ]
+    
+    # initialize workload by partitioning candidate indices across cores
+    work = []
+    start = 0
+    for size in pool_sizes:
+        work.append((candidates, dfs, range(start, start + size), margins))
+        start += size
+
+    # start multithreading
+    with Pool(cores) as executor:
+        result = executor.map(is_splitcycle_winner, work)
+    
+    # gather results
+    winners = set.union(*result)
 
     return sorted(winners)
 
@@ -224,7 +264,7 @@ def margins_from_ballots(ballots):
     return margins
 
 
-def elect(ballots, candidates, dfs=False):
+def elect(ballots, candidates, dfs=True):
     '''
     Determine the SplitCycle winners given a set of `ballots` and
     `candidates`
@@ -251,7 +291,7 @@ def elect(ballots, candidates, dfs=False):
         a list of candidate names, where the index of each name
         corresponds to the index of the candidate in each ballot
 
-    `dfs=False`:
+    `dfs=True`:
         if `True`, use depth-first search to determine the SplitCycle
         winners; if `False`, use breadth-first search
 
