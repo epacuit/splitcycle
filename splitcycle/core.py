@@ -1,8 +1,8 @@
 '''Core utilities for SplitCycle package'''
 
 import os
-import numpy as np
 from multiprocessing import Pool
+import numpy as np
 from .errors import not_enough_candidates
 
 
@@ -218,7 +218,7 @@ def splitcycle(margins, candidates=None, dfs=True):
         (candidates_per_core + 1) if (i < n % cores) else candidates_per_core
         for i in range(cores)
     ]
-    
+
     # initialize workload by partitioning candidate indices across cores
     work = []
     start = 0
@@ -229,7 +229,7 @@ def splitcycle(margins, candidates=None, dfs=True):
     # start multithreading
     with Pool(cores) as executor:
         result = executor.map(is_splitcycle_winner, work)
-    
+
     # gather results
     winners = set.union(*result)
 
