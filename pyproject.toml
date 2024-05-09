@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "splitcycle"
+version = "1.0.0"
+description = "A new Condorcet consistent voting method independent of clones and immune to spoilers"
+authors = ["Wesley Holliday <wesholliday@berkeley.edu>", "Eric Pacuit <epacuit@umd.edu>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+numpy = "^1.26.3"
+tabulate = "^0.9.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
