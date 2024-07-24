@@ -1,95 +1,100 @@
-'''Core utilities for SplitCycle package'''
+"""Core utilities for SplitCycle package"""
 
 import os
 from multiprocessing import Pool
 import numpy as np
 from .errors import not_enough_candidates
+from collections import deque
 
 
 def is_square(matrix):
-    '''Check if `matrix` is 2D and square'''
+    """Check if `matrix` is 2D and square"""
     return (len(matrix.shape) == 2) and (matrix.shape[0] == matrix.shape[1])
 
 
 def has_reverse_diagonal_symmetry(matrix):
-    '''
+    """
     Check if `matrix` is 2D square with reverse diagonal symmetry
     i.e. `A[i, j] == -A[j, i]` for all `i, j`
-    '''
+    """
     return is_square(matrix) and np.allclose(matrix, -matrix.T)
 
 
 def has_zero_diagonal(matrix):
-    '''
+    """
     Check if `matrix` is 2D square with zero diagonal entries
     i.e. `A[i, i] == 0` for all `i`
-    '''
+    """
     return is_square(matrix) and np.allclose(matrix.diagonal(), 0)
 
 
 def is_margin_like(matrix):
-    '''
+    """
     Check if `matrix` can be used as a voting margins matrix satisfying
     reverse diagonal symmetry and with zero diagonal entries
-    '''
+    """
     return has_reverse_diagonal_symmetry(matrix) and has_zero_diagonal(matrix)
 
 
 def is_splitcycle_winner(work):
-    '''
+    """
     Determine which candidates satisfy the criteria to be considered
     SplitCycle winners
-    
+
     `work`:
         tuple with:
-        (all_candidates, dfs, considered_candidates, margins) 
+        (all_candidates, dfs, considered_candidates, margins)
 
     Returns a pruned list of identified winners
-    '''
+    """
+
     def has_strong_path(matrix, source, target, k):
-        '''
+        """
         Given a square `matrix`, return `True` if there is a path from
         `source` to `target` in the associated directed graph, where
         each edge has a weight greater than or equal to `k`, and `False`
         otherwise.
-        '''
+        """
         n = matrix.shape[0]  # `A` is square
-        # keep track of visited nodes (initially all `False`)
-        visited = np.zeros(n, dtype=bool)
-        visited[source] = True  # do not revisit the `source` node
+        if source == target:
+            return True
 
-        def bfs(nodes):
-            '''
-            Breadth-first search implementation:
-            Search starting from `nodes` in `matrix` until a path to
-            `target` is found or until all nodes are searched. Since 
-            Condorcet cycles are exceedingly rare in real elections and
-            typically do not involve many candidates[1], a breadth-first
-            search of the margins graph will be fastest to detect such a
-            cycle.
+        s_visited = np.zeros(n, dtype=bool)
+        t_visited = np.zeros(n, dtype=bool)
+        s_visited[source] = True
+        t_visited[target] = True
 
-            [1] (Gehrlein and Lepelley, "Voting Paradoxes and Group
-                Coherence")
-            '''
-            queue = []  # nodes to search next cycle
+        sq = deque([source])
+        tq = deque([target])
 
-            for node in nodes:
-                # check for a direct path from `node` to `target`
-                if matrix[node, target] >= k:
-                    return True
+        cs = None
+        ct = None
 
-                # queue neighbors to check for a path to `target`
-                visited[node] = True
-                for neighbor, weight in enumerate(matrix[node, :]):
-                    if weight >= k and not visited[neighbor]:
-                        queue.append(neighbor)
+        while sq and tq:
+            if sq:
+                cs = sq.popleft()
+                for neighbor, weight in enumerate(matrix[cs]):
+                    if weight >= k:
+                        if t_visited[neighbor]:
+                            return True
+                        if not s_visited[neighbor]:
+                            s_visited[neighbor] = True
+                            sq.append(neighbor)
 
-            return bfs(queue) if queue else False
+            if tq:
+                ct = tq.popleft()
+                for neighbor in range(n):
+                    if matrix[neighbor, ct] >= k:
+                        if s_visited[neighbor]:
+                            return True
+                        if not t_visited[neighbor]:
+                            t_visited[neighbor] = True
+                            tq.append(neighbor)
 
-        return bfs([source])
+        return False
 
     def has_strong_path_dfs(matrix, source, target, k):
-        '''
+        """
         Given a square `matrix`, return `True` if there is a path from
         `source` to `target` in the associated directed graph, where
         each edge has a weight greater than or equal to `k`, and `False`
@@ -99,17 +104,17 @@ def is_splitcycle_winner(work):
         depth-first search implementation instead of breadth-first
         search when searching for strong paths. It is included for
         comparison and testing purposes.
-        '''
+        """
         n = matrix.shape[0]  # `A` is square
         # keep track of visited nodes (initially all `False`)
         visited = np.zeros(n, dtype=bool)
 
         def dfs(node):
-            '''
+            """
             Depth-first search implementation:
             Search starting from `node` in `matrix` until a path to
             `target` is found or until all nodes are searched.
-            '''
+            """
             if node == target:
                 # path to target exists
                 return True
@@ -153,8 +158,9 @@ def is_splitcycle_winner(work):
         # >>>   (margins[a, b] < 0) and not \
         # ...       has_strong_path(margins, a, b, -margins[a, b])
         for b in all_candidates:
-            if (margins[a, b] < 0) and not \
-                finder(margins, a, b, -margins[a, b]):
+            if (margins[a, b] < 0) and not finder(
+                margins, a, b, -margins[a, b]
+            ):
                 winners.discard(a)
                 break
 
@@ -162,7 +168,7 @@ def is_splitcycle_winner(work):
 
 
 def splitcycle(margins, candidates=None, dfs=True):
-    '''
+    """
     If x has a positive margin over y and there is no path from y back
     to x of strength at least the margin of x over y, then x defeats y.
     The candidates that are undefeated are the Split Cycle winners.
@@ -174,35 +180,34 @@ def splitcycle(margins, candidates=None, dfs=True):
         (which should be zero, as candidates cannot defeat themselves)
 
     `candidates=None`:
-        if `None`, use the candidates in `margins` 
-    
+        if `None`, use the candidates in `margins`
+
     `dfs=True`:
         if `False`, use breadth-first search instead of default
         depth-first search implementation
 
     Returns a sorted list of all SplitCycle winners
-    '''
+    """
     if not is_margin_like(margins):
         raise TypeError(
-            '`margins` must be a square matrix with diagonal symmetry '
-            'and zero diagonal entries. `margins` represents a '
-            'directed graph as a square matrix, where `margins[i, j]` '
-            'represents the signed margin of victory (positive) or '
-            'defeat (negative) of candidate `i` against `j`. The '
-            'reverse election (candidate `j` against `i`) is '
-            'represented by `margins[j, i]` and should be equal to '
-            '`-margins[i, j]`. Additionally, the election of candidate '
-            '`i` against itself should have zero margin (i.e. '
-            '`margins[i, i] == 0`). As all preferences are compared to '
-            'each other, this matrix should include weights (margins) '
-            'between any two candidates (zero if tied).\n\n'
-
-            'The current `margins` matrix does not satisfy one of '
-            'these properties:\n'
-            '  - 2D array\n'
-            '  - square matrix\n'
-            '  - reverse diagonal symmetry\n'
-            '  - zero diagonal\n'
+            "`margins` must be a square matrix with diagonal symmetry "
+            "and zero diagonal entries. `margins` represents a "
+            "directed graph as a square matrix, where `margins[i, j]` "
+            "represents the signed margin of victory (positive) or "
+            "defeat (negative) of candidate `i` against `j`. The "
+            "reverse election (candidate `j` against `i`) is "
+            "represented by `margins[j, i]` and should be equal to "
+            "`-margins[i, j]`. Additionally, the election of candidate "
+            "`i` against itself should have zero margin (i.e. "
+            "`margins[i, i] == 0`). As all preferences are compared to "
+            "each other, this matrix should include weights (margins) "
+            "between any two candidates (zero if tied).\n\n"
+            "The current `margins` matrix does not satisfy one of "
+            "these properties:\n"
+            "  - 2D array\n"
+            "  - square matrix\n"
+            "  - reverse diagonal symmetry\n"
+            "  - zero diagonal\n"
         )
 
     n = margins.shape[0]  # `margins` is square
@@ -237,35 +242,22 @@ def splitcycle(margins, candidates=None, dfs=True):
 
 
 def margins_from_ballots(ballots):
-    '''
+    """
     Turn a set of ballots (as described in `elect`) into a voting
     margins matrix (as described in `splitcycle`)
-    '''
+    """
     # generate initial margins matrix
     n_candidates = ballots.shape[1]
     margins = np.zeros((n_candidates, n_candidates))
 
-    for ballot in ballots:
-        # update all margins for this ballot
-        for i in range(n_candidates):
-            for j in range(n_candidates):
-                if i == j:
-                    # margins already has zero diagonal
-                    continue
-
-                # handle ranking possibilities except ties (do nothing)
-                if ballot[i] < ballot[j]:
-                    # i beats j
-                    margins[i, j] += 1
-                elif ballot[i] > ballot[j]:
-                    # i loses to j
-                    margins[i, j] -= 1
+    comp = np.expand_dims(ballots, axis=2) - np.expand_dims(ballots, axis=1)
+    margins = np.sum(np.where(comp < 0, 1, np.where(comp > 0, -1, 0)), axis=0)
 
     return margins
 
 
 def elect(ballots, candidates, dfs=True):
-    '''
+    """
     Determine the SplitCycle winners given a set of `ballots` and
     `candidates`
 
@@ -283,7 +275,7 @@ def elect(ballots, candidates, dfs=True):
         >>> ballots = np.array([
         ...     # candidates are A, B, C, D
         ...     [1, 2, 3, 4],  # candidates ranked in sequential order
-        ...     [3, 1, 1, 2],  # candidates B and C tied for first place 
+        ...     [3, 1, 1, 2],  # candidates B and C tied for first place
         ...     [1, 1, 1, 2],  # candidates A, B, and C tied, D unranked
         ... ])
 
@@ -296,7 +288,7 @@ def elect(ballots, candidates, dfs=True):
         winners; if `False`, use breadth-first search
 
     Returns a sorted list of all SplitCycle winners
-    '''
+    """
     # check that all candidates are represented in `ballots`
     if ballots.shape[1] != len(candidates):
         not_enough_candidates()
